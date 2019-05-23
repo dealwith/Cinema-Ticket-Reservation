@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Header from './components/Header'
+import Header from './components/header'
 import './scss/app.scss'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from "react-bootstrap/Container";
 
 
 
@@ -13,9 +12,6 @@ class CinemaTicketReservation extends React.Component {
         return (
             <div>
                 <Header/>
-                <Container>
-                    <h1>Hello</h1>
-                </Container>
             </div>
         )
     }

@@ -42187,7 +42187,373 @@ var _ToggleButtonGroup2 = _interopRequireDefault(require("./ToggleButtonGroup"))
 var _Tooltip2 = _interopRequireDefault(require("./Tooltip"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Accordion":"node_modules/react-bootstrap/es/Accordion.js","./Alert":"node_modules/react-bootstrap/es/Alert.js","./Badge":"node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"node_modules/react-bootstrap/es/Card.js","./CardColumns":"node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"node_modules/react-bootstrap/es/CloseButton.js","./Col":"node_modules/react-bootstrap/es/Col.js","./Collapse":"node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"node_modules/react-bootstrap/es/Fade.js","./Form":"node_modules/react-bootstrap/es/Form.js","./FormControl":"node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"node_modules/react-bootstrap/es/FormLabel.js","./FormText":"node_modules/react-bootstrap/es/FormText.js","./Container":"node_modules/react-bootstrap/es/Container.js","./Image":"node_modules/react-bootstrap/es/Image.js","./Figure":"node_modules/react-bootstrap/es/Figure.js","./InputGroup":"node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"node_modules/react-bootstrap/es/Media.js","./Modal":"node_modules/react-bootstrap/es/Modal.js","./ModalBody":"node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"node_modules/react-bootstrap/es/Nav.js","./Navbar":"node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"node_modules/react-bootstrap/es/NavItem.js","./Overlay":"node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"node_modules/react-bootstrap/es/PageItem.js","./Pagination":"node_modules/react-bootstrap/es/Pagination.js","./Popover":"node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"node_modules/react-bootstrap/es/SplitButton.js","./Tab":"node_modules/react-bootstrap/es/Tab.js","./TabContainer":"node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"node_modules/react-bootstrap/es/TabContent.js","./Table":"node_modules/react-bootstrap/es/Table.js","./TabPane":"node_modules/react-bootstrap/es/TabPane.js","./Tabs":"node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"node_modules/react-bootstrap/es/Tooltip.js"}],"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
+},{"./Accordion":"node_modules/react-bootstrap/es/Accordion.js","./Alert":"node_modules/react-bootstrap/es/Alert.js","./Badge":"node_modules/react-bootstrap/es/Badge.js","./Breadcrumb":"node_modules/react-bootstrap/es/Breadcrumb.js","./BreadcrumbItem":"node_modules/react-bootstrap/es/BreadcrumbItem.js","./Button":"node_modules/react-bootstrap/es/Button.js","./ButtonGroup":"node_modules/react-bootstrap/es/ButtonGroup.js","./ButtonToolbar":"node_modules/react-bootstrap/es/ButtonToolbar.js","./Card":"node_modules/react-bootstrap/es/Card.js","./CardColumns":"node_modules/react-bootstrap/es/CardColumns.js","./CardDeck":"node_modules/react-bootstrap/es/CardDeck.js","./CardImg":"node_modules/react-bootstrap/es/CardImg.js","./CardGroup":"node_modules/react-bootstrap/es/CardGroup.js","./Carousel":"node_modules/react-bootstrap/es/Carousel.js","./CarouselItem":"node_modules/react-bootstrap/es/CarouselItem.js","./CloseButton":"node_modules/react-bootstrap/es/CloseButton.js","./Col":"node_modules/react-bootstrap/es/Col.js","./Collapse":"node_modules/react-bootstrap/es/Collapse.js","./Dropdown":"node_modules/react-bootstrap/es/Dropdown.js","./DropdownButton":"node_modules/react-bootstrap/es/DropdownButton.js","./DropdownItem":"node_modules/react-bootstrap/es/DropdownItem.js","./Fade":"node_modules/react-bootstrap/es/Fade.js","./Form":"node_modules/react-bootstrap/es/Form.js","./FormControl":"node_modules/react-bootstrap/es/FormControl.js","./FormCheck":"node_modules/react-bootstrap/es/FormCheck.js","./FormGroup":"node_modules/react-bootstrap/es/FormGroup.js","./FormLabel":"node_modules/react-bootstrap/es/FormLabel.js","./FormText":"node_modules/react-bootstrap/es/FormText.js","./Container":"node_modules/react-bootstrap/es/Container.js","./Image":"node_modules/react-bootstrap/es/Image.js","./Figure":"node_modules/react-bootstrap/es/Figure.js","./InputGroup":"node_modules/react-bootstrap/es/InputGroup.js","./Jumbotron":"node_modules/react-bootstrap/es/Jumbotron.js","./ListGroup":"node_modules/react-bootstrap/es/ListGroup.js","./ListGroupItem":"node_modules/react-bootstrap/es/ListGroupItem.js","./Media":"node_modules/react-bootstrap/es/Media.js","./Modal":"node_modules/react-bootstrap/es/Modal.js","./ModalBody":"node_modules/react-bootstrap/es/ModalBody.js","./ModalDialog":"node_modules/react-bootstrap/es/ModalDialog.js","./ModalFooter":"node_modules/react-bootstrap/es/ModalFooter.js","./ModalTitle":"node_modules/react-bootstrap/es/ModalTitle.js","./Nav":"node_modules/react-bootstrap/es/Nav.js","./Navbar":"node_modules/react-bootstrap/es/Navbar.js","./NavbarBrand":"node_modules/react-bootstrap/es/NavbarBrand.js","./NavDropdown":"node_modules/react-bootstrap/es/NavDropdown.js","./NavItem":"node_modules/react-bootstrap/es/NavItem.js","./Overlay":"node_modules/react-bootstrap/es/Overlay.js","./OverlayTrigger":"node_modules/react-bootstrap/es/OverlayTrigger.js","./PageItem":"node_modules/react-bootstrap/es/PageItem.js","./Pagination":"node_modules/react-bootstrap/es/Pagination.js","./Popover":"node_modules/react-bootstrap/es/Popover.js","./ProgressBar":"node_modules/react-bootstrap/es/ProgressBar.js","./ResponsiveEmbed":"node_modules/react-bootstrap/es/ResponsiveEmbed.js","./Row":"node_modules/react-bootstrap/es/Row.js","./SafeAnchor":"node_modules/react-bootstrap/es/SafeAnchor.js","./Spinner":"node_modules/react-bootstrap/es/Spinner.js","./SplitButton":"node_modules/react-bootstrap/es/SplitButton.js","./Tab":"node_modules/react-bootstrap/es/Tab.js","./TabContainer":"node_modules/react-bootstrap/es/TabContainer.js","./TabContent":"node_modules/react-bootstrap/es/TabContent.js","./Table":"node_modules/react-bootstrap/es/Table.js","./TabPane":"node_modules/react-bootstrap/es/TabPane.js","./Tabs":"node_modules/react-bootstrap/es/Tabs.js","./ThemeProvider":"node_modules/react-bootstrap/es/ThemeProvider.js","./ToggleButton":"node_modules/react-bootstrap/es/ToggleButton.js","./ToggleButtonGroup":"node_modules/react-bootstrap/es/ToggleButtonGroup.js","./Tooltip":"node_modules/react-bootstrap/es/Tooltip.js"}],"src/components/auth-form.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var AuthForm =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(AuthForm, _Component);
+
+  function AuthForm(props) {
+    var _this;
+
+    _classCallCheck(this, AuthForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(AuthForm).call(this, props));
+    _this.state = {
+      email: '',
+      pass: ''
+    };
+    _this.emailHandleChange = _this.emailHandleChange.bind(_assertThisInitialized(_this));
+    _this.passwordHandleChange = _this.passwordHandleChange.bind(_assertThisInitialized(_this));
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(AuthForm, [{
+    key: "emailHandleChange",
+    value: function emailHandleChange(event) {
+      this.setState({
+        email: event.target.value
+      });
+    }
+  }, {
+    key: "passwordHandleChange",
+    value: function passwordHandleChange(event) {
+      this.setState({
+        pass: event.target.value
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(event) {
+      event.preventDefault();
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_reactBootstrap.Form, {
+        onSubmit: this.handleSubmit
+      }, _react.default.createElement("div", {
+        className: "row"
+      }, _react.default.createElement("div", {
+        className: "col-xs-4 mx-auto"
+      }, _react.default.createElement(_reactBootstrap.Form.Group, {
+        controlId: "formGroupEmail"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Email address"), _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "email",
+        value: this.state.email,
+        placeholder: "Enter email",
+        onChange: this.emailHandleChange
+      })), _react.default.createElement(_reactBootstrap.Form.Group, {
+        controlId: "formGroupPassword"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, null, "Password"), _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "password",
+        value: this.state.pass,
+        placeholder: "Password",
+        onChange: this.passwordHandleChange
+      })))), _react.default.createElement(_reactBootstrap.Button, {
+        type: "submit"
+      }, "Enter in da house"));
+    }
+  }]);
+
+  return AuthForm;
+}(_react.Component);
+
+exports.default = AuthForm;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"src/components/auth-modal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _authForm = _interopRequireDefault(require("./auth-form"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var AuthModal =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(AuthModal, _React$Component);
+
+  function AuthModal() {
+    _classCallCheck(this, AuthModal);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(AuthModal).apply(this, arguments));
+  }
+
+  _createClass(AuthModal, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement(_reactBootstrap.Modal, _extends({}, this.props, {
+        size: "lg",
+        "aria-labelledby": "contained-modal-title-vcenter",
+        centered: true,
+        className: "modal modal-auth"
+      }), _react.default.createElement(_reactBootstrap.Modal.Header, {
+        className: "bg-dark modal-auth__header"
+      }, _react.default.createElement(_reactBootstrap.Modal.Title, {
+        id: "contained-modal-title-vcenter",
+        className: "modal-auth__title"
+      }, "Login")), _react.default.createElement(_reactBootstrap.Modal.Body, null, _react.default.createElement("h4", null, "Enter your data"), _react.default.createElement(_authForm.default, null)), _react.default.createElement(_reactBootstrap.Modal.Footer, null, _react.default.createElement("a", {
+        href: "#",
+        "class": "stretched-link position-relative mr-auto"
+      }, "Do't have an account?"), _react.default.createElement(_reactBootstrap.Button, {
+        onClick: this.props.onHide
+      }, "Close")));
+    }
+  }]);
+
+  return AuthModal;
+}(_react.default.Component);
+
+exports.default = AuthModal;
+},{"react":"node_modules/react/index.js","./auth-form":"src/components/auth-form.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"src/components/extended-seacrh.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.ExtendedSearch = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var ExtendedSearch =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(ExtendedSearch, _Component);
+
+  function ExtendedSearch() {
+    _classCallCheck(this, ExtendedSearch);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ExtendedSearch).apply(this, arguments));
+  }
+
+  _createClass(ExtendedSearch, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", {
+        className: "collapse multi-collapse mt-2 w-100",
+        id: "search-collapse"
+      }, _react.default.createElement("div", {
+        className: "card card-body"
+      }, _react.default.createElement(_reactBootstrap.Form.Group, {
+        as: _reactBootstrap.Row,
+        controlId: "formCitySearch"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, {
+        column: true,
+        sm: 4
+      }, "City"), _react.default.createElement(_reactBootstrap.Col, {
+        column: true,
+        sm: 6
+      }, _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "text",
+        placeholder: "Vacanda"
+      }))), _react.default.createElement(_reactBootstrap.Form.Group, {
+        as: _reactBootstrap.Row,
+        controlId: "formCitySearch"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, {
+        column: true,
+        sm: 4
+      }, "Cinema"), _react.default.createElement(_reactBootstrap.Col, {
+        column: true,
+        sm: 6
+      }, _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "text",
+        placeholder: "Red star"
+      }))), _react.default.createElement(_reactBootstrap.Form.Group, {
+        as: _reactBootstrap.Row,
+        controlId: "formCitySearch"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, {
+        column: true,
+        sm: 4
+      }, "Movie name"), _react.default.createElement(_reactBootstrap.Col, {
+        column: true,
+        sm: 6
+      }, _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "text",
+        placeholder: "Alladin"
+      }))), _react.default.createElement(_reactBootstrap.Form.Group, {
+        as: _reactBootstrap.Row,
+        controlId: "formCitySearch"
+      }, _react.default.createElement(_reactBootstrap.Form.Label, {
+        column: true,
+        sm: 4
+      }, "Available place(s)"), _react.default.createElement(_reactBootstrap.Col, {
+        column: true,
+        sm: 6
+      }, _react.default.createElement(_reactBootstrap.Form.Control, {
+        type: "number",
+        placeholder: "1"
+      })))));
+    }
+  }]);
+
+  return ExtendedSearch;
+}(_react.Component);
+
+exports.ExtendedSearch = ExtendedSearch;
+var _default = ExtendedSearch;
+exports.default = _default;
+},{"react":"node_modules/react/index.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"src/components/search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _extendedSeacrh = _interopRequireDefault(require("./extended-seacrh"));
+
+var _reactBootstrap = require("react-bootstrap");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = Object.defineProperty && Object.getOwnPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : {}; if (desc.get || desc.set) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; return newObj; } }
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Search =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Search, _Component);
+
+  function Search(props) {
+    var _this;
+
+    _classCallCheck(this, Search);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
+    _this.state = {};
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: "render",
+    value: function render() {
+      return _react.default.createElement("div", null, _react.default.createElement(_reactBootstrap.Form, {
+        className: "d-flex justify-content-end",
+        inline: true
+      }, _react.default.createElement("div", {
+        className: "d-flex"
+      }, _react.default.createElement(_reactBootstrap.FormControl, {
+        type: "text",
+        placeholder: "Search",
+        className: " mr-sm-2"
+      }), _react.default.createElement(_reactBootstrap.Button, {
+        "data-toggle": "collapse",
+        "data-target": "#search-collapse",
+        "aria-expanded": "false",
+        "aria-controls": "search-collapse",
+        className: "mr-3"
+      }, "extended search"), _react.default.createElement(_reactBootstrap.Button, {
+        type: "submit"
+      }, "Submit")), _react.default.createElement(_extendedSeacrh.default, null)));
+    }
+  }]);
+
+  return Search;
+}(_react.Component);
+
+exports.default = Search;
+},{"react":"node_modules/react/index.js","./extended-seacrh":"src/components/extended-seacrh.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js"}],"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -55949,7 +56315,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/Header.js":[function(require,module,exports) {
+},{"_css_loader":"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/components/header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -55961,6 +56327,10 @@ var _react = _interopRequireDefault(require("react"));
 
 var _Container = _interopRequireDefault(require("react-bootstrap/Container"));
 
+var _authModal = _interopRequireDefault(require("./auth-modal.js"));
+
+var _search = _interopRequireDefault(require("./search"));
+
 var _reactBootstrap = require("react-bootstrap");
 
 require("bootstrap/dist/js/bootstrap.bundle.min");
@@ -55969,27 +56339,86 @@ require("bootstrap/dist/css/bootstrap.min.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Header = function Header() {
-  return _react.default.createElement("header", null, _react.default.createElement(_reactBootstrap.Navbar, {
-    expand: "xl",
-    variant: "dark",
-    bg: "dark"
-  }, _react.default.createElement(_Container.default, null, _react.default.createElement(_reactBootstrap.Navbar.Brand, {
-    href: "#"
-  }, "Cinema-Ticket-Reservarion"), _react.default.createElement(_reactBootstrap.Form, {
-    inline: true
-  }, _react.default.createElement(FormControl, {
-    type: "text",
-    placeholder: "Search",
-    className: " mr-sm-2"
-  }), _react.default.createElement(Button, {
-    type: "submit"
-  }, "Submit")))));
-};
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+var Header =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header(props) {
+    var _this;
+
+    _classCallCheck(this, Header);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Header).call(this, props));
+    _this.state = {
+      modalShow: false
+    };
+    return _this;
+  }
+
+  _createClass(Header, [{
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var modalClose = function modalClose() {
+        return _this2.setState({
+          modalShow: false
+        });
+      };
+
+      return _react.default.createElement("header", null, _react.default.createElement(_reactBootstrap.Navbar, {
+        expand: "xl",
+        variant: "dark",
+        bg: "dark",
+        className: "navbar"
+      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_reactBootstrap.Row, {
+        className: "justify-content-xl-between w-100"
+      }, _react.default.createElement(_reactBootstrap.Col, null, _react.default.createElement(_reactBootstrap.Navbar.Brand, {
+        href: "#"
+      }, "Cinema-Ticket-Reservarion")), _react.default.createElement(_reactBootstrap.Col, {
+        className: "d-flex align-items-start"
+      }, _react.default.createElement(_reactBootstrap.Form, {
+        inline: true
+      }, _react.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
+        onClick: function onClick() {
+          return _this2.setState({
+            modalShow: true
+          });
+        },
+        className: "navbar-item navbar-item_login-button mr-3"
+      }, "Login"), _react.default.createElement(_authModal.default, {
+        show: this.state.modalShow,
+        onHide: modalClose
+      })), _react.default.createElement(_search.default, null))))));
+    }
+  }]);
+
+  return Header;
+}(_react.default.Component);
 
 var _default = Header;
 exports.default = _default;
-},{"react":"node_modules/react/index.js","react-bootstrap/Container":"node_modules/react-bootstrap/Container.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","bootstrap/dist/js/bootstrap.bundle.min":"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js","bootstrap/dist/css/bootstrap.min.css":"node_modules/bootstrap/dist/css/bootstrap.min.css"}],"src/scss/app.scss":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-bootstrap/Container":"node_modules/react-bootstrap/Container.js","./auth-modal.js":"src/components/auth-modal.js","./search":"src/components/search.js","react-bootstrap":"node_modules/react-bootstrap/es/index.js","bootstrap/dist/js/bootstrap.bundle.min":"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js","bootstrap/dist/css/bootstrap.min.css":"node_modules/bootstrap/dist/css/bootstrap.min.css"}],"src/scss/app.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
@@ -56001,15 +56430,13 @@ var _react = _interopRequireDefault(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _Header = _interopRequireDefault(require("./components/Header"));
+var _header = _interopRequireDefault(require("./components/header"));
 
 require("./scss/app.scss");
 
 require("bootstrap/dist/js/bootstrap.bundle.min");
 
 require("bootstrap/dist/css/bootstrap.min.css");
-
-var _Container = _interopRequireDefault(require("react-bootstrap/Container"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56045,7 +56472,7 @@ function (_React$Component) {
   _createClass(CinemaTicketReservation, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Container.default, null, _react.default.createElement("h1", null, "Hello")));
+      return _react.default.createElement("div", null, _react.default.createElement(_header.default, null));
     }
   }]);
 
@@ -56055,7 +56482,7 @@ function (_React$Component) {
 var App = document.getElementById("app");
 
 _reactDom.default.render(_react.default.createElement(CinemaTicketReservation, null), App);
-},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/Header":"src/components/Header.js","./scss/app.scss":"src/scss/app.scss","bootstrap/dist/js/bootstrap.bundle.min":"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js","bootstrap/dist/css/bootstrap.min.css":"node_modules/bootstrap/dist/css/bootstrap.min.css","react-bootstrap/Container":"node_modules/react-bootstrap/Container.js"}],"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-dom":"node_modules/react-dom/index.js","./components/header":"src/components/header.js","./scss/app.scss":"src/scss/app.scss","bootstrap/dist/js/bootstrap.bundle.min":"node_modules/bootstrap/dist/js/bootstrap.bundle.min.js","bootstrap/dist/css/bootstrap.min.css":"node_modules/bootstrap/dist/css/bootstrap.min.css"}],"../../../Users/user/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -56083,7 +56510,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57313" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52554" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

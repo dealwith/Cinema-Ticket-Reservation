@@ -16,7 +16,10 @@
     "jq": "^1.7.2",
     "jquery": "^3.4.1",
     "re": "^0.1.4",
+    "rea": "0.0.1",
     "react": "^16.8.6",
+    "react-boo": "0.0.6",
+    "react-boot": "0.0.2",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6"
   },
@@ -24,6 +27,7 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "cssnano": "^4.1.10",
     "node-sass": "^4.12.0"
   }
 }
