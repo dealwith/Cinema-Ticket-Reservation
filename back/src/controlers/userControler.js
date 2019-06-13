@@ -1,8 +1,10 @@
-// import  from 'userService';
+import { hasUser } from 'userServices';
+
 app.post('/user-login', (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
-    res.send()
+    hasUser();
+    res.send();
 })
 
 app.post('/user-registrate', (req, res, next) => {
