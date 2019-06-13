@@ -1,12 +1,11 @@
-import { hasUser } from 'userServices';
+import { Router } from 'express';
+import { hasUser } from '../services/userServices';
 
-app.post('/user-login', (req, res, next) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    hasUser();
-    res.send();
+const router = Router();
+
+router.post('/user-login', (req, res, next) => {
+    console.log(req.body.email);
+    hasUser(req, res);
 })
 
-app.post('/user-registrate', (req, res, next) => {
-    res.send('API is working')
-})
+export default router;

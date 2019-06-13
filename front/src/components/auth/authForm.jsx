@@ -51,7 +51,7 @@ export default class AuthForm extends React.Component {
         const registrate = this.props.registrate;
 
         return (
-            <Form onSubmit={ this.handleSubmit } className='h-100 w-100'>
+            <Form onSubmit={ this.handleSubmit } className='h-100 w-100' method='POST'>
                 <div className="row align-items-center">
                     <div className="col-xs-4 mx-auto d-flex flex-column justify-content-center align-items-center">
                         <Form.Group>
@@ -62,6 +62,7 @@ export default class AuthForm extends React.Component {
                                 value={ this.state.email }
                                 placeholder="Enter email"
                                 onChange={ this.handleInputChange }
+
                                 />
                         </Form.Group>
                         <Form.Group >
@@ -71,7 +72,9 @@ export default class AuthForm extends React.Component {
                                 type='password'
                                 value={ this.state.pass }
                                 placeholder='Password'
-                                onChange={this.handleInputChange} />
+                                onChange={this.handleInputChange} 
+                                
+                                />
                         </Form.Group>
                         { this.props.children }
                         <Button type="submit">

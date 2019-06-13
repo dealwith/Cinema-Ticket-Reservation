@@ -1,8 +1,9 @@
-import  User  from './models/User';
+import  User  from './models/User.js';
 import express from 'express';
 import bodyParser from 'body-parser';
 import Sequelize from 'sequelize';
 import cors from 'cors';
+import routes from './controlers/userControler';
 
 
 const sequelize = new Sequelize('cinema', 'postgres', 'initial', {
@@ -13,14 +14,11 @@ const PORT = 3000;
 const app = express();
 
 app.use(cors({ credentials: true, origin: true }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use(function (req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//     next();
-// });
+app.use('/', routes);
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
