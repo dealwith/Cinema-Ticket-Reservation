@@ -1,1 +1,2 @@
-export const loginApi = '/loginApi'
+// exports.PROFILE = '/profile';
+// exports.LOGIN = '/login';

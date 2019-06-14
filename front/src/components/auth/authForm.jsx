@@ -36,8 +36,9 @@ export default class AuthForm extends React.Component {
             password           
         }
 
-        axios.post('http://localhost:3000/user-login', user)
-            .then((res) => console.log(res.data))
+        axios.post('http://localhost:3000/login', user)
+            .then(res => console.log(res))
+            // .then((res) => localStorage.setItem())
             .catch((err) => console.log(err));
                 
         this.setState({

@@ -1,11 +1,9 @@
-import Sequelize from 'sequelize';
-const sequelize = new Sequelize('cinema', 'postgres', 'initial', {
-    dialect: 'postgres',
-    host: 'localhost'
-});
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize('postgres://postgres:initial@localhost:54499/cinema');
 
-const User = sequelize.define("user", {
-    idUser: {
+class User extends Sequelize.Model {};
+User.init({
+    id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
@@ -19,5 +17,14 @@ const User = sequelize.define("user", {
         type: Sequelize.STRING,
         allowNull: false
     }
-});
-export default User
+}, {
+    sequelize,
+    modelName: 'user'
+})
+
+User.create({
+    email: 'a',
+    password: '123'
+})
+
+module.exports = User
