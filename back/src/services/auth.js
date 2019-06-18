@@ -1,6 +1,6 @@
-const User = require('../models/User');
 const jwt = require('jsonwebtoken');
-const SECRET_JWT = 'Gleb'
+const SECRET_JWT = 'Gleb';
+const User = require('../server');
 
 const generateToken = (id) => {
     const token = jwt.sign({
@@ -12,7 +12,7 @@ const generateToken = (id) => {
     return {token: 'bearer' + token}
 }
 
-module.exports = login  = (payload) => {
+module.exports = login  = async (payload) => {
     const { email, password } = payload;
     
     const user = User.findOne({ where: { email: email } })
@@ -25,3 +25,16 @@ module.exports = login  = (payload) => {
 
     return generateToken(user.id)
 }
+
+// module.exports = signup  = async (payload) => {
+//     const { email, password } = payload;
+
+
+//     const user = await User.findOne({ 'local.email': email });
+//     if (!user)  {
+//         return alert('this email is aleready taken')
+//     } else {
+
+//     }
+
+// }

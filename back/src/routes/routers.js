@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router();
 const passport = require('passport');
-const authService = require('../services/auth');
+const login = require('../services/auth');
 
 router.post('/profile', passport.authenticate('jwt', { session: false }),
     function (req, res) {
@@ -11,7 +11,7 @@ router.post('/profile', passport.authenticate('jwt', { session: false }),
 
 router.post('/login', async (req, res) => {
     console.log(req.body);
-    const response = await authService.login(req.body);
+    const response = await login(req.body);
     res.json(response);
 });
 
