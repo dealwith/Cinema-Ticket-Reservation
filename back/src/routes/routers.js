@@ -1,20 +1,23 @@
 const express = require('express')
 const router = express.Router();
 const passport = require('passport');
-const login = require('../services/auth');
+const {login, signup} = require('../services/auth');
+const { PROFILE, LOGIN, SIGNUP} = require('../constants/constant')
 
-router.post('/profile', passport.authenticate('jwt', { session: false }),
-    function (req, res) {
-        res.send(req.user.profile);
-    }
+router.post(PROFILE, passport.authenticate('jwt', { session: false }),
+    (req, res) => res.send(req.user.profile)
 );
 
-router.post('/login', async (req, res) => {
+router.post(LOGIN, (req, res) => {
     console.log(req.body);
-    const response = await login(req.body);
+    const response = login(req.body);
     res.json(response);
 });
 
-// router.post(signup)
+router.post(SIGNUP, async(req, res) => {
+    console.log(req.body);
+    const response = await signup(req.body);
+    res.json(response);
+})
 
 module.exports = router;
