@@ -12,6 +12,10 @@ export default class Search extends Component {
 
         }
     }
+
+    componentDidMount(){
+        
+    }
     
     render() {
         return (
