@@ -1,26 +1,34 @@
 module.exports = (sequelize, Sequelize) => {
 
-    return sequelize.define('user', {
+    return sequelize.define('movie', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        email: {
+        name: {
             type: Sequelize.STRING,
             allowNull: false,
-            unique: true,
+            unique: true
+        },
+        imgUrl: {
+            type: Sequelize.STRING,
             validate: {
-                isEmail: true
+                isUrl: true,
+                
             }
         },
-        password: {
-            type: Sequelize.STRING,
+        rating: {
+            type: Sequelize.INTEGER,
             allowNull: false,
             validate: {
-                notEmpty: true
+                isNumeric: true,
             }
         }
+        // cinemaId{
+
+        // }
+        
     })
 }

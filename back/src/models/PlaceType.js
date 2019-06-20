@@ -1,26 +1,20 @@
 module.exports = (sequelize, Sequelize) => {
 
-    return sequelize.define('user', {
+    return sequelize.define('timeTable', {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
             allowNull: false
         },
-        email: {
+        default: {
             type: Sequelize.STRING,
-            allowNull: false,
-            unique: true,
-            validate: {
-                isEmail: true
-            }
         },
-        password: {
+        vip: {
             type: Sequelize.STRING,
-            allowNull: false,
-            validate: {
-                notEmpty: true
-            }
+        },
+        couple: {
+            type: Sequelize.STRING,
         }
     })
 }
