@@ -26,9 +26,5 @@ module.exports = (sequelize, Sequelize) => {
                 isNumeric: true,
             }
         }
-        // cinemaId{
-
-        // }
-        
     })
 }

@@ -12,6 +12,5 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             unique: true
         }
-        //cityId
     })
 }

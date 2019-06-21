@@ -7,8 +7,8 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             allowNull: false
         },
-        // movieId,
-        // cinemaId,
-        // cityId,
+        dateTime: {
+            type: Sequelize.DATE 
+        }
     })
 }

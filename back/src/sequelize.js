@@ -1,13 +1,16 @@
 const Sequelize = require('sequelize');
 const UserModel = require('./models/User');
-const CityModel = require('./models/CityModel');
-const CinemaModel = require('./models/CinemaModel');
-const MovieModel = require('./models/MovieModel');
-const CinemaSheduleModel = require('./models/CinemaSheduleModel');
-const TimeTableModel = require('./models/TimeTableModel');
-const RoomModel = require('./models/RoomModel');
-const PlaceModel = require('./models/PlaceModel');
-const PlaceTypeModel = require('./models/PlaceTypeModel');
+const CityModel = require('./models/City');
+const CinemaModel = require('./models/Cinema');
+const MovieModel = require('./models/Movie');
+const CinemaSheduleModel = require('./models/CinemaShedule');
+const TimeTableModel = require('./models/TimeTable');
+const RoomModel = require('./models/Room');
+const PlaceModel = require('./models/Place');
+const PlaceTypeModel = require('./models/PlaceType');
+const TicketModel = require('./models/Ticket');
+const AddonModel = require('./models/Addon');
+const TicketAddonModel = require('./models/TicketAddon');
 
 const sequelize = new Sequelize('cinema', 'postgres', 'initial', {
     dialect: 'postgres',
@@ -23,15 +26,31 @@ const TimeTable = TimeTableModel(sequelize, Sequelize);
 const Room = RoomModel(sequelize, Sequelize);
 const Place = PlaceModel(sequelize, Sequelize);
 const PlaceType = PlaceTypeModel(sequelize, Sequelize);
+const Ticket = TicketModel(sequelize, Sequelize);
+const Addon = AddonModel(sequelize, Sequelize);
+const TicketAddon = TicketAddonModel(sequelize, Sequelize);
+
+
+// City.belongsToMany(Cinema);
+// Cinema.hasMany(Room);
+// Movie.belongsToMany(Cinema);
+// CinemaShedule.belongsToMany(Movie);
+// CinemaShedule.belongsToMany(Cinema);
+// Room.hasMany(Place);
+// Place.belongsToMany(PlaceType);
+// Ticket.belongsToMany(Movie);
+// TicketAddon.belongsToMany(Ticket);
+// TicketAddon.belongsToMany(Addon);
+
 
 sequelize
-  .authenticate()
-  .then(() => console.log('Connection has been established successfully.'))
-  .catch(err => console.error('Unable to connect to the database:', err));
+    .authenticate()
+    .then(() => console.log('Connection has been established successfully.'))
+    .catch(err => console.error('Unable to connect to the database:', err));
 
 sequelize.sync({force: false})
     .then(() => {
-      console.log(`Database & tables created!`)
+        console.log(`Database & tables created!`)
     })
 
 module.exports = {
@@ -44,4 +63,7 @@ module.exports = {
     Room,
     Place,
     PlaceType,
+    Ticket,
+    Addon,
+    TicketAddon
 }

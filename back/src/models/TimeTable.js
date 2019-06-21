@@ -7,7 +7,5 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             allowNull: false
         },
-        // movieId
-        // roomId
     })
 }
