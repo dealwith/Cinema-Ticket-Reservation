@@ -1,0 +1,5 @@
+.movie-card-contaiener{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(1fr, 200px)); 
+    grid-gap: 1%;
+}

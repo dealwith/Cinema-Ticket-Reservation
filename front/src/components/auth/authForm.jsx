@@ -15,7 +15,7 @@ export default class AuthForm extends React.Component {
         }
     };
 
-    handleInputChange = (event) => {
+    handleInputChange = event => {
         const target = event.target;
         const name = target.name;
         const value = target.value;

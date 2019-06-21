@@ -1,11 +1,15 @@
 import React from "react";
 import Header from '../header/header'
-
+import Body from '../body/body'
+import MovieCardContainer from '../movieCard/movieCardContainer'
 
 const App = () => (
-        <div>
-            <Header />
-        </div>
+        <>
+            <Header/>
+            <Body >
+                <MovieCardContainer></MovieCardContainer>
+            </Body>
+        </>
 )
 
 export default App

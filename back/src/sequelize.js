@@ -31,16 +31,14 @@ const Addon = AddonModel(sequelize, Sequelize);
 const TicketAddon = TicketAddonModel(sequelize, Sequelize);
 
 
-// City.belongsToMany(Cinema);
-// Cinema.hasMany(Room);
-// Movie.belongsToMany(Cinema);
-// CinemaShedule.belongsToMany(Movie);
-// CinemaShedule.belongsToMany(Cinema);
-// Room.hasMany(Place);
-// Place.belongsToMany(PlaceType);
-// Ticket.belongsToMany(Movie);
-// TicketAddon.belongsToMany(Ticket);
-// TicketAddon.belongsToMany(Addon);
+City.hasMany(Cinema);
+Cinema.hasMany(Room);
+Movie.belongsToMany(Cinema, {through: 'CinemaMovie'});
+Movie.belongsToMany(Cinema, {through: CinemaShedule});
+Cinema.belongsToMany(Movie, {through: CinemaShedule});
+Cinema.hasMany(Room);
+Room.hasMany(Place);
+PlaceType.hasMany(Place);
 
 
 sequelize
