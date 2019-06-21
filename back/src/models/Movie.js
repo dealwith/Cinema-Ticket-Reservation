@@ -26,5 +26,8 @@ module.exports = (sequelize, Sequelize) => {
                 isNumeric: true,
             }
         }
+    },
+    {
+        timestamps: false
     })
 }
