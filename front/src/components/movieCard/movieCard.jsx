@@ -12,15 +12,15 @@ export default class MovieCard extends React.Component {
     }
 
     getMovies(){
-        const url = 'http://localhost:1234/movie';
+        const url = 'http://localhost:3000/movie';
         axios
             .get(url)
-            .then(movies => {
-                console.log(movies.data);
-                this.setState({
-                    movies: movies.data
-                })
+            .then(response => {
+                let arr = response.data;
+                console.log(arr);
+                this.setState({movies: arr})
             })
+            .catch(err => console.log(err))
     }
         
 
@@ -29,23 +29,25 @@ export default class MovieCard extends React.Component {
     }
 
     render() {
-        // const movieData = this.state.movies.map(((item, index) => {
-        //     let arr = [`Name: ${item.name}, Url: ${item.ingUrl}`].join(' ');
-        //     return arr
-        // }))        
+        let movies = this.state.movies.map((item, index) => 
+            <div className='movie-card-item' style={{ width: '200px', height: '400px', overflow:'hidden' }}>
+                <div className="movie-card-item__img">
+                    <img src={item.imgUrl} alt=""/>
+                </div>
+                <div className="movie-card-item__title">
+                    <h4>{item.name}</h4>
+                </div>
+                <div className="movie-card-item__date">
+
+                </div>
+                <div>
+                    Gleb's rating {item.rating}%
+                </div>
+            </div>
+        )
         return (
             <>
-                <div className='movie-card-item' style={{width: '200px', height: '150px', backgroundColor: 'red'}}>
-                    <div className="movie-card-item__img">
-                        
-                    </div>
-                    <div className="movie-card-item__title">
-                        
-                    </div>
-                    <div className="movie-card-item__date">
-        
-                    </div>
-                </div>
+                {movies}    
             </>
         )
     }

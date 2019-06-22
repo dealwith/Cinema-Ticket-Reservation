@@ -1,5 +1,25 @@
-.movie-card-contaiener{
+.movie-card-container{
     display: grid;
-    grid-template-columns: repeat(5, minmax(1fr, 200px)); 
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 1%;
+}
+
+.movie-card-item{
+    max-width: 230px;
+    height: 370px; 
+    padding: 10px 5px; 
+    &__img{
+        height: 70%;
+        margin-bottom: 10px;
+        overflow: hidden;
+        > img{
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            display: block;
+        }
+    }
+    &__title{
+
+    }
 }
