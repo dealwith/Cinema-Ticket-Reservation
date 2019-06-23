@@ -2,7 +2,7 @@ import React from 'react'
 import {Container} from 'react-bootstrap'
 
 
-const Body = (props) => {
+const main = (props) => {
     return (
         <div className='body-content'>
             <Container>
@@ -12,4 +12,4 @@ const Body = (props) => {
     )
 }
 
-export default Body
+export default main

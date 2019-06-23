@@ -1,14 +1,14 @@
 import React from "react";
 import Header from '../header/header'
-import Body from '../body/body'
+import Main from '../main/main'
 import MovieCardContainer from '../movieCard/movieCardContainer'
 
 const App = () => (
         <>
             <Header/>
-            <Body >
+            <Main >
                 <MovieCardContainer></MovieCardContainer>
-            </Body>
+            </Main>
         </>
 )
 

@@ -63,7 +63,6 @@ export default class AuthForm extends React.Component {
                                 value={ this.state.email }
                                 placeholder="Enter email"
                                 onChange={ this.handleInputChange }
-
                                 />
                         </Form.Group>
                         <Form.Group >
@@ -74,7 +73,6 @@ export default class AuthForm extends React.Component {
                                 value={ this.state.pass }
                                 placeholder='Password'
                                 onChange={this.handleInputChange} 
-                                
                                 />
                         </Form.Group>
                         { this.props.children }

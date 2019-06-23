@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import { isArray } from 'util';
+
 
 export default class MovieCard extends React.Component {
     constructor(props) {
@@ -17,7 +17,6 @@ export default class MovieCard extends React.Component {
             .get(url)
             .then(response => {
                 let arr = response.data;
-                console.log(arr);
                 this.setState({movies: arr})
             })
             .catch(err => console.log(err))
@@ -30,7 +29,7 @@ export default class MovieCard extends React.Component {
 
     render() {
         let movies = this.state.movies.map((item, index) => 
-            <div className='movie-card-item' style={{ width: '200px', height: '400px', overflow:'hidden' }}>
+            <div className='movie-card-item' key={item.id}>
                 <div className="movie-card-item__img">
                     <img src={item.imgUrl} alt=""/>
                 </div>
