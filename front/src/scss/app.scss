@@ -1,3 +1,4 @@
+@import 'search';
 @import 'movie-card';
 
 body {
@@ -6,6 +7,10 @@ body {
   h1 {
     font-size: 40px;
     margin-top: 30px;
+  }
+
+  h4{
+    font-size: 1.2rem;
   }
 }
 

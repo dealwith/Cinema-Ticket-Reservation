@@ -1,16 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ExtendedSearch from './extendedSeacrh';
-import Suggestion from './suggestion';
+import { Link } from "react-router-dom";
+import Suggestions from './suggestions';
 import { Form } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 
 
-const API_URL = 'http://localhost:3000/movie'
+const API_URL = 'http://localhost:3000/search'
 
 
-export default class Search extends Component {
+export default class Search extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
@@ -29,16 +30,19 @@ export default class Search extends Component {
             }) 
     }
 
-    handleChange = () => {
+    handleInputChange = () => {
         this.setState({
             query: this.search.current.value
         }, () => {
-            if(this.state.query && this.state.query.length > 1) {
-                if(this.state.query.length % 2 === 0) {
-                    this.getSuggestions()
-                }
+            if(this.state.query && this.state.query.length > 0) {
+                this.getSuggestions()   
             }
         })
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post()
     }
 
     componentDidMount(){
@@ -48,16 +52,16 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <Form className='d-flex justify-content-end' inline>
+                <Form className='d-flex justify-content-end' method='POST' inline>
                     <div className="d-flex">
-                        <div className='d-flex flex-column'>
+                        <div className='d-flex flex-column position-relative'>
                             <FormControl type="text" 
                                 placeholder="Search"
                                 ref={ this.search }
-                                onChange={ this.handleChange }
+                                onChange={ this.handleInputChange }
                                 value={ this.state.value }
                                 className="mr-sm-2" />
-                            <Suggestion/>
+                            { this.state.query.length === 0 ? '' : <Suggestions results={ this.state.results }/> }
                         </div>
                         <Button data-toggle="collapse"
                             data-target="#search-collapse"
@@ -65,9 +69,9 @@ export default class Search extends Component {
                             aria-controls="search-collapse"
                             className='mr-3'>
                             extended search</Button>
-                        <Button type="submit">Submit</Button>
+                        <Link to="/search"><Button type="submit" onSubmit={ this.handleSubmit }>Submit</Button></Link>
                     </div>
-                    <ExtendedSearch />
+                    <ExtendedSearch/>
                 </Form>
                 
             </div>

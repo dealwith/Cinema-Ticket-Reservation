@@ -8,7 +8,7 @@ const ExtendedSearch = () => {
     return (
         <div className="collapse multi-collapse mt-2 w-100" id="search-collapse">
             <div className="card card-body">
-                <Form.Group as={Row} >
+                <Form.Group className='mb-1' as={Row} >
                     <Form.Label column="true" sm={4}>
                         City
                     </Form.Label>
@@ -16,7 +16,7 @@ const ExtendedSearch = () => {
                         <Form.Control type="text" placeholder="Vacanda" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} >
+                <Form.Group className='mb-1' as={Row} >
                     <Form.Label column="true" sm={4}>
                         Cinema
                     </Form.Label>
@@ -24,7 +24,7 @@ const ExtendedSearch = () => {
                         <Form.Control type="text" placeholder="Red star" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} >
+                <Form.Group className='mb-1' as={Row} >
                     <Form.Label column="true" sm={4}>
                         Movie name
                     </Form.Label>
@@ -32,7 +32,7 @@ const ExtendedSearch = () => {
                         <Form.Control type="text" placeholder="Alladin" />
                     </Col>
                 </Form.Group>
-                <Form.Group as={Row} >
+                <Form.Group className='mb-1' as={Row} >
                     <Form.Label column="true" sm={4}>
                         Available place(s)
                     </Form.Label>

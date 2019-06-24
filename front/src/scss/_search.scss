@@ -1,5 +1,5 @@
-.search-suggestion{
-    position: absolute;
-    top: 0;
-    width: 100%;
+.search-suggestions{
+    z-index: 1;
+    top: 40px;
+    width: calc(100% - .5rem);
 }

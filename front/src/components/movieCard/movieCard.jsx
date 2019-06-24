@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 
+const MOVIE_API = 'http://localhost:3000/movie';
+
 
 export default class MovieCard extends React.Component {
     constructor(props) {
@@ -12,9 +14,8 @@ export default class MovieCard extends React.Component {
     }
 
     getMovies(){
-        const url = 'http://localhost:3000/movie';
         axios
-            .get(url)
+            .get(MOVIE_API)
             .then(response => {
                 let arr = response.data;
                 this.setState({movies: arr})
@@ -28,7 +29,7 @@ export default class MovieCard extends React.Component {
     }
 
     render() {
-        let movies = this.state.movies.map((item, index) => 
+        let movies = this.state.movies.map(item => 
             <div className='movie-card-item' key={item.id}>
                 <div className="movie-card-item__img">
                     <img src={item.imgUrl} alt=""/>

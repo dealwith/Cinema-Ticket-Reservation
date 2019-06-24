@@ -4,11 +4,11 @@ import {Container} from 'react-bootstrap'
 
 const main = (props) => {
     return (
-        <div className='body-content'>
+        <main className='body-content'>
             <Container>
                 {props.children}
             </Container>
-        </div>
+        </main>
     )
 }
 
