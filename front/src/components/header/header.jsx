@@ -1,8 +1,9 @@
 import React from 'react';
 import Search from '../search/search';
-import history from '../history/history'
-import {Navbar, Container, Row, Col, Form,  Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {history} from '../../index'
+import { Navbar, Container, Row, Col, Form,  Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
         if(history.location.pathname == '/loginPage' || history.location.pathname == '/registratePage'){
@@ -29,7 +30,6 @@ const Header = () => {
                                     <Search />
                                 </Col>
                             </Row>
-                            
                         </Container>
                     </Navbar>
                 </header>

@@ -4,10 +4,10 @@ import Suggestions from './suggestions';
 import { Form , FormControl, Button } from 'react-bootstrap';
 import axios from 'axios';
 import {SEARCH_URL, MAIN_URL} from '../../constants/constants';
-import { createBrowserHistory } from 'history';
-import { Redirect } from 'react-router'
+import { history } from '../../index'
+import { Link } from 'react-router-dom'
 
-const history = createBrowserHistory();
+
 
 
 
@@ -62,11 +62,13 @@ export default class Search extends React.Component {
             seets
         }
 
+        
+        
         history.push('/search')
 
-        // axios.post(SEARCH_URL, search)
-        //     .then(x => console.log(x))
-        //     .catch(err => console.log(err))
+        axios.post(SEARCH_URL, search)
+            .then(x => console.log(x))
+            .catch(err => console.log(err))
     }
 
     componentDidMount(){
@@ -97,7 +99,7 @@ export default class Search extends React.Component {
                     >
                         extended search
                     </Button>
-                    <Button type="submit">Submit</Button>
+                    {/* <Link to='/search'> */}<Button type="submit">Submit</Button>{/* </Link> */}
                 </div>
                 <ExtendedSearch
                     city={ this.state.city }
