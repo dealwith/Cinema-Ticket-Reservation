@@ -27,7 +27,7 @@ router.get(MOVIE, async(req, res) => {
     await Movie.findAll().then(movies => res.json(movies))
 })
 
-router.get('/search', async (req, res) => {
+router.get('/', async (req, res) => {
     let q  = req.query.search
     let suggestions = await Movie.findAll({ where: { name: { [Op.iLike]: '%' + q + '%' } }})
     res.json(suggestions)
