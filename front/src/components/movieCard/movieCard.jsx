@@ -1,7 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-
-const MOVIE_API = 'http://localhost:3000/movie';
+import {MOVIE_API} from '../../constants/constants';
 
 
 export default class MovieCard extends React.Component {

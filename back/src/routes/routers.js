@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router();
 const passport = require('passport');
 const { login, signup } = require('../services/auth');
-// const { movieNameSearch } = require('../services/movieNameSearch');
+const { search } = require('../services/search');
 const { PROFILE, LOGIN, SIGNUP, MOVIE } = require('../constants/constant');
 const { Movie } = require('../sequelize');
 const { Op } = require('../sequelize');
@@ -12,13 +12,11 @@ router.post(PROFILE, passport.authenticate('jwt', { session: false }),
 );
 
 router.post(LOGIN, (req, res) => {
-    // console.log(req.body);
     const response = login(req.body);
     res.json(response);
 });
 
 router.post(SIGNUP, async(req, res) => {
-    // console.log(req.body);
     const response = await signup(req.body);
     res.json(response);
 })
@@ -33,5 +31,10 @@ router.get('/', async (req, res) => {
     res.json(suggestions)
 })
 
+router.get('/search', async (req, res) => {
+    const response = await search(req.body);
+    res.json(response);
+}
+)
 
 module.exports = { router };

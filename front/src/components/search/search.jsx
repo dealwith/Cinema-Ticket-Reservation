@@ -3,12 +3,8 @@ import ExtendedSearch from './extendedSeacrh';
 import Suggestions from './suggestions';
 import { Form , FormControl, Button } from 'react-bootstrap';
 import axios from 'axios';
-import {SEARCH_URL, MAIN_URL} from '../../constants/constants';
+import { SEARCH_URL, MAIN_URL } from '../../constants/constants';
 import { history } from '../../index'
-import { Link } from 'react-router-dom'
-
-
-
 
 
 export default class Search extends React.Component {
@@ -62,8 +58,6 @@ export default class Search extends React.Component {
             seets
         }
 
-        
-        
         history.push('/search')
 
         axios.post(SEARCH_URL, search)
