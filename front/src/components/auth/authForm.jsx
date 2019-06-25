@@ -21,7 +21,7 @@ export default class AuthForm extends React.Component {
         const value = target.value;
 
         this.setState({
-            [name] :value
+            [name]: value
         })
     }; 
 
