@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
         },
         popcorn: {
             type: Sequelize.INTEGER,
@@ -13,5 +12,8 @@ module.exports = (sequelize, Sequelize) => {
         cocaCola: {
             type: Sequelize.INTEGER,
         }
+    },
+    {
+        timestamps: false
     })
 }

@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
         },
         default: {
             type: Sequelize.STRING,
@@ -16,5 +15,8 @@ module.exports = (sequelize, Sequelize) => {
         couple: {
             type: Sequelize.STRING,
         }
+    },
+    {
+        timestamps: false
     })
 }

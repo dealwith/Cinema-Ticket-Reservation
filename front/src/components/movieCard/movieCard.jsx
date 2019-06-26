@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios';
-import {MOVIE_API} from '../../constants/constants';
+import { MOVIE_API } from '../../constants/constants';
 
 
 export default class MovieCard extends React.Component {

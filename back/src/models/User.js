@@ -5,7 +5,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
         },
         email: {
             type: Sequelize.STRING,
@@ -22,5 +21,8 @@ module.exports = (sequelize, Sequelize) => {
                 notEmpty: true
             }
         }
+    },
+    {
+        timestamps: false
     })
 }

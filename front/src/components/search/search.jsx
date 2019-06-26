@@ -58,11 +58,11 @@ export default class Search extends React.Component {
             seets
         }
 
-        history.push('/search')
-
         axios.post(SEARCH_URL, search)
             .then(x => console.log(x))
+            .then(() => history.push('/search'))
             .catch(err => console.log(err))
+
     }
 
     componentDidMount(){
@@ -92,8 +92,7 @@ export default class Search extends React.Component {
                             className='mr-3'
                     >
                         extended search
-                    </Button>
-                    {/* <Link to='/search'> */}<Button type="submit">Submit</Button>{/* </Link> */}
+                    </Button><Button type="submit">Submit</Button>
                 </div>
                 <ExtendedSearch
                     city={ this.state.city }
