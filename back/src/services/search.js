@@ -4,49 +4,68 @@ module.exports.search  = async (payload) => {
     const { movieName, cinema, city, seats } = payload;
     const request = {};
 
-    if(cinema) {
-        const cityObject = await City.findOne({
-            where: {
-                name: city
-            }
-        })
+    // if(cinema) {
+    //     const cityObject = await City.findOne({
+    //         where: {
+    //             name: city
+    //         }
+    //     })
 
-        const cinemaObject = await Cinema.findOne({
-            where: {
-                cityId: cityObject.id
-            }
-        })
-        request.cinemaId  = cinemaObject.id;
-    }
+    //     const cinemaObject = await Cinema.findOne({
+    //         where: {
+    //             cityId: cityObject.id
+    //         }
+    //     })
+    //     request.cinemaId  = cinemaObject.id;
+    // }
 
-    if(movieName) {
-        const movieObject = await Movie.findOne({
-            where: {
-                name: movieName
-            }
-        })
-        request.movieId = movieObject.id;
-    }
+    // if(movieName) {
+    //     const movieObject = await Movie.findOne({
+    //         where: {
+    //             name: movieName
+    //         }
+    //     })
+    //     request.movieId = movieObject.id;
+    // }
 
-    if(seats) {
-        const seatsObject = await CinemaShedule.findOne({
-            where: {
-                seats: seats
-            }
-        })
-        request.seats = seatsObject.seats
-    }
+    // if(seats) {
+    //     const seatsObject = await CinemaShedule.findOne({
+    //         where: {
+    //             seats: seats
+    //         }
+    //     })
+    //     request.seats = seatsObject.seats
+    // }
     
-    const sessions = {
+    // const sessions = {
+    //     where: {
+    //         cinemaId: request.cinemaId,
+    //         movieId: request.movieId,
+    //         seats: request.seats
+    //     }
+    // };
+
+    const cityObject = await City.findOne({
         where: {
-            inemaId: request.cinemaId,
-            movieId: request.movieId,
-            seats: request.seats
+            name: city
         }
-    };
+    })
 
 
-    const cinemaSheduleObject = await CinemaShedule.findAll(sessions);
+    const cinemaSheduleObject = await CinemaShedule.findAll({
+        where: {
+            include: [
+                {
+                    model: Cinema,
+                    where: {
+                        cityId: {
+                            [Op.or]: [cityObject.id, { [Op.regexp]: '.*' }]
+                        }
+                    }
+                }
+            ]
+        }
+    });
 
     return cinemaSheduleObject;
 }
