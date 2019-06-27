@@ -12,10 +12,24 @@ Promise.all(
         { name: 'John Wick: Chapter 3 -- Parabellum', imgUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/94/John_Wick_Chapter_3_Parabellum.png/220px-John_Wick_Chapter_3_Parabellum.png', rating: 66 }
         ]), 
     Cinema.bulkCreate([
-        { name: 'Red Star', cityId: 1 },
+        { name: 'RedStar', cityId: 1 },
         { name: 'October', cityId: 2 }
         ])
     ]
-).then( ( [ movie, cinema ] ) => CinemaShedule.create( {movieId: movie.id, cinemaId: cinema.id} ) )
+).then( () => CinemaShedule.bulkCreate( [{
+        movieId: 1,
+        cinemaId: 1,
+        dateTime: Date.now(),
+        seats: 5
+    },{
+        movieId: 2,
+        cinemaId: 1,
+        dateTime: Date.now(),
+        seats: 7
+    },{
+        movieId: 2,
+        cinemaId: 2,
+        dateTime: Date.now(),
+        seats: 63
+    }]));
 }
-

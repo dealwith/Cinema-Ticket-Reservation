@@ -8,6 +8,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         dateTime: {
             type: Sequelize.DATE 
+        },
+        seats:{
+            type: Sequelize.INTEGER
         }
     },
     {

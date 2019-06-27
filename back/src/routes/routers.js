@@ -31,10 +31,9 @@ router.get('/', async (req, res) => {
     res.json(suggestions)
 })
 
-router.get('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
     const response = await search(req.body);
     res.json(response);
-}
-)
+})
 
 module.exports = { router };

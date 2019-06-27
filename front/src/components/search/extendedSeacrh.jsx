@@ -25,6 +25,7 @@ const ExtendedSearch = props => {
                             placeholder="Vacanda"
                             value={ city }
                             onChange={ handleInputChange }
+                            required
                         />
                     </Col>
                 </Form.Group>

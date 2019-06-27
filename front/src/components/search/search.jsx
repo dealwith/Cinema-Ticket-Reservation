@@ -15,7 +15,7 @@ export default class Search extends React.Component {
             results: [],
             city: '',
             cinema: '',
-            seets: '',
+            seats: 1,
             toSearch: false
         }
         this.search = React.createRef();
@@ -46,16 +46,16 @@ export default class Search extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let name = this.state.query;
+        let movieName = this.state.query;
         let cinema = this.state.cinema;
         let city = this.state.city;
-        let seets = this.state.seets;
+        let seats = this.state.seats;
         
         const search = {
-            name,
+            movieName,
             cinema,
             city,
-            seets
+            seats
         }
 
         axios.post(SEARCH_URL, search)
@@ -98,7 +98,7 @@ export default class Search extends React.Component {
                     city={ this.state.city }
                     cinema={ this.state.cinema }
                     query={ this.state.query }
-                    seets={ this.state.seets }
+                    seats={ this.state.seats }
                     handleInputChange={ this.handleInputChange }
                 />
             </Form>
