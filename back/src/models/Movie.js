@@ -24,6 +24,9 @@ module.exports = (sequelize, Sequelize) => {
             validate: {
                 isNumeric: true,
             }
+        },
+        description: {
+            type: Sequelize.TEXT
         }
     },
     {

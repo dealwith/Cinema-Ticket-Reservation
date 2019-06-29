@@ -1,11 +1,11 @@
 const PROFILE = '/profile';
 const LOGIN = '/login';
 const SIGNUP = '/signup';
-const MOVIE = '/movie'
+const MOVIES = '/movies'
 
 module.exports = {
     SIGNUP,
     LOGIN,
     PROFILE,
-    MOVIE,
+    MOVIES,
 }

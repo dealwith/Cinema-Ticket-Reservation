@@ -5,10 +5,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Router, Route } from "react-router-dom";
 import Header from './components/header/header';
 import SearchResult from "./components/search/searchResult";
-import MovieCardContainer from './components/movieCard/movieCardContainer';
-import Main from './components/main/main'
+import MovieCardContainer from './components/movie/movieCardContainer';
+import Main from './components/main/main';
 import LoginPage from './components/auth/loginPage';
 import RegistratePage from './components/auth/registratePage';
+import MoviePage from './components/movie/moviePage';
 import './scss/app.scss';
 import { createBrowserHistory } from 'history';
 export const history = createBrowserHistory();
@@ -19,9 +20,10 @@ const CinemaTicketReservation = () =>
             <Header />
             <Main>
                 <Route path="/" exact component={ MovieCardContainer } />
-                <Route path="/search" component={ SearchResult } />
+                <Route path="/search" component={ SearchResult } /> 
                 <Route path="/loginPage" component={ LoginPage } />
                 <Route path="/registratePage" component={ RegistratePage } />
+                <Route path="/movies/:movieId" component={ MoviePage } />
             </Main>
         </Router>
     )

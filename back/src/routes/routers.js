@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const { login, signup } = require('../services/auth');
 const { search } = require('../services/search');
-const { PROFILE, LOGIN, SIGNUP, MOVIE } = require('../constants/constant');
+const { PROFILE, LOGIN, SIGNUP, MOVIES } = require('../constants/constant');
 const { Movie } = require('../sequelize');
 const { Op } = require('../sequelize');
 
@@ -21,7 +21,7 @@ router.post(SIGNUP, async(req, res) => {
     res.json(response);
 })
 
-router.get(MOVIE, async(req, res) => {
+router.get(MOVIES, async(req, res) => {
     await Movie.findAll().then(movies => res.json(movies))
 })
 
@@ -35,5 +35,11 @@ router.post('/search', async (req, res) => {
     const response = await search(req.body);
     res.json(response);
 })
+
+router.get('/movies/:id', async (req, res) => {
+        let id = req.params.id;
+        const response = await Movie.findByPk(id)
+        res.send(response)
+    })
 
 module.exports = { router };

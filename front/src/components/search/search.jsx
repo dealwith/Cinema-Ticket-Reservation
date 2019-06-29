@@ -62,7 +62,6 @@ export default class Search extends React.Component {
             .then(x => console.log(x))
             .then(() => history.push('/search'))
             .catch(err => console.log(err))
-
     }
 
     componentDidMount(){
@@ -83,7 +82,7 @@ export default class Search extends React.Component {
                             className="mr-sm-2"
                             autoComplete="off" 
                         />
-                        { this.state.query.length === 0 ? null : <Suggestions results={ this.state.results }/> }
+                        { this.state.query.length === 0 ? null : <Suggestions results={ this.state.results } /> }
                     </div>
                     <Button data-toggle="collapse"
                             data-target="#search-collapse"

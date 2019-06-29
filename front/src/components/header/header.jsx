@@ -10,7 +10,7 @@ const Header = () => {
             return null
         } else {
             return(
-                <header>
+                <header className='mb-4'>
                     <Navbar expand="xl" variant="dark" bg="dark" className='navbar'>
                         <Container>
                             <Row className='justify-content-xl-between w-100'>
