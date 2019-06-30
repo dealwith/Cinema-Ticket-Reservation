@@ -12,10 +12,6 @@ export default class MovieCard extends React.Component {
         }
     }
 
-    handleClick = e => {
-        
-    }
-
     getMovies = () => {
         axios
             .get(MOVIES_API)
@@ -45,7 +41,6 @@ export default class MovieCard extends React.Component {
                     <div>
                         Gleb's rating {movie.rating}%
                     </div>
-                    <button href="#" className="btn btn-primary">Buy</button>
                 </div>
             </a>
         )

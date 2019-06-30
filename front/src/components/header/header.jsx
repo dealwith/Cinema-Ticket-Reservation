@@ -10,12 +10,12 @@ const Header = () => {
             return null
         } else {
             return(
-                <header className='mb-4'>
+                <header className='mb-5'>
                     <Navbar expand="xl" variant="dark" bg="dark" className='navbar'>
                         <Container>
                             <Row className='justify-content-xl-between w-100'>
                                 <Col>
-                                    <Navbar.Brand href="#">Cinema-Ticket-Reservarion</Navbar.Brand>
+                                    <Navbar.Brand href="/">Cinema-Ticket-Reservarion</Navbar.Brand>
                                 </Col>
                                 
                                 <Col className='d-flex align-items-start'>

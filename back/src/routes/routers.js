@@ -21,10 +21,6 @@ router.post(SIGNUP, async(req, res) => {
     res.json(response);
 })
 
-router.get(MOVIES, async(req, res) => {
-    await Movie.findAll().then(movies => res.json(movies))
-})
-
 router.get('/', async (req, res) => {
     let q  = req.query.search
     let suggestions = await Movie.findAll({ where: { name: { [Op.iLike]: '%' + q + '%' } }})
@@ -36,7 +32,11 @@ router.post('/search', async (req, res) => {
     res.json(response);
 })
 
-router.get('/movies/:id', async (req, res) => {
+router.get(MOVIES, async (req, res) => {
+    await Movie.findAll().then(movies => res.json(movies))
+})
+
+router.get(MOVIES + '/:id', async (req, res) => {
         let id = req.params.id;
         const response = await Movie.findByPk(id)
         res.send(response)

@@ -5,6 +5,7 @@ import { history } from '../../index';
 import { Card } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import axios from 'axios'
 
 
 export class Login extends React.Component{
@@ -106,7 +107,7 @@ export class Registrate extends React.Component{
             password
         }
 
-        axios.post('http://localhost:3000/login', user)
+        axios.post('http://localhost:3000/signup', user)
             .then(res => console.log(res))
             // .then((res) => localStorage.setItem())
             .catch((err) => console.log(err));
@@ -115,7 +116,7 @@ export class Registrate extends React.Component{
             email: '',
             password: '',
         })
-        this.props.history.push('/')
+        history.push('/') 
     };
     render() {
         return (

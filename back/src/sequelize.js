@@ -12,6 +12,7 @@ const PlaceTypeModel = require('./models/PlaceType');
 const TicketModel = require('./models/Ticket');
 const AddonModel = require('./models/Addon');
 const TicketAddonModel = require('./models/TicketAddon');
+const RoleModel = require('./models/Role');
 const Op = Sequelize.Op
 
 const sequelize = new Sequelize('cinema', 'postgres', 'initial', {
@@ -31,8 +32,10 @@ const PlaceType = PlaceTypeModel(sequelize, Sequelize);
 const Ticket = TicketModel(sequelize, Sequelize);
 const Addon = AddonModel(sequelize, Sequelize);
 const TicketAddon = TicketAddonModel(sequelize, Sequelize);
+const Role = RoleModel(sequelize, Sequelize);
 
 
+Role.belongsTo(User);
 City.hasMany(Cinema);
 Cinema.hasMany(Room);
 Movie.belongsToMany(Cinema, {through: CinemaShedule});
@@ -41,7 +44,7 @@ Cinema.hasMany(Room);
 Room.hasMany(Place);
 PlaceType.hasMany(Place);
 
-seed(City, Cinema, Movie, CinemaShedule);
+seed(City, Cinema, Movie, CinemaShedule, Role);
 
 sequelize
     .authenticate()
@@ -67,4 +70,5 @@ module.exports = {
     Ticket,
     Addon,
     TicketAddon,
+    Role,
 }

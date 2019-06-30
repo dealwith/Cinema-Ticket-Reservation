@@ -1,7 +1,7 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Dropdown } from 'react-bootstrap';
 import axios from 'axios';
-import MOVIE_API from '../../constants/constants'
+import { MovieSelect } from './select';
 
 
 class MoviePage extends React.Component {
@@ -10,7 +10,7 @@ class MoviePage extends React.Component {
         this.state = { movie: {} };
     }
 
-    getData = () => {
+    getMovie = () => {
         const { match: {params} } = this.props;
 
         axios
@@ -22,16 +22,24 @@ class MoviePage extends React.Component {
     }
 
     componentDidMount = () => {
-        this.getData()
+        this.getMovie()
     }
     
     render() {
         const movie = this.state.movie;
+
+        const cinemas = [
+            'Red Star',
+            'October'
+        ]
         return (
             <Container>
+                <div className="movie-filter mb-3 d-flex">
+                    <MovieSelect/>
+                </div>
                 <div className='card' style={{height: 'auto'}}>
                     <div className="row no-gutters">
-                        <div className="col md-4">
+                        <div className="col md-5">
                             <img src={movie.imgUrl} alt="" className="card-img rounded" style={{maxHeight: 500, objectFit: 'contain'}}/>
                         </div>
                         <div className="col md-8">
@@ -41,6 +49,9 @@ class MoviePage extends React.Component {
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className="cinema-schedules">
+
                 </div>
             </Container>
         )

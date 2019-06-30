@@ -8,6 +8,7 @@ const RegistrateForm = props => (
         handleInputChange={ props.handleInputChange }
         email={ props.email }
         password={ props.password }
+        handleSubmit={ props.handleSubmit }
     >
         <Form.Group >
             <Form.Label>Repeat password</Form.Label>
