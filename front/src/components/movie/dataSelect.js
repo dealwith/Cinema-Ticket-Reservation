@@ -1,6 +1,12 @@
 import axios from 'axios';
 import {  CITIES_API, CINEMAS_API, MOVIES_API } from '../../constants/constants';
 
+// export async function getCities() {
+//     const cityOptions = await axios
+//                 .get(CITIES_API);
+//     return cityOptions.map(opt => ({ value: opt.name, label: opt.name }));
+// };
+
 export const cityOptions = axios
                 .get(CITIES_API)
                 .then(x => x.data)

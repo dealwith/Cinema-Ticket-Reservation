@@ -12,6 +12,10 @@ const CitySelect = () =>  {
         setSities(result)
     }, [])
 
+    const handleChange = () => {
+        
+    }
+
     return(
         <Select
             className='movie-filter__select'
@@ -19,6 +23,8 @@ const CitySelect = () =>  {
             defaultValue={ citites[0] }
             isSearchable
             isClearable
+            placeholder='All cities'
+            onChange={ handleChange }
         />
     )    
 }
@@ -37,6 +43,7 @@ const CinemaSelect = () =>  {
             defaultValue
             isSearchable
             isClearable
+            placeholder='All cinemas'
         />
     )    
 }
@@ -55,6 +62,7 @@ const MovieSelect = () =>  {
             defaultValue={ movies[0] }
             isSearchable
             isClearable
+            placeholder='All movies'
         />
     )    
 }
