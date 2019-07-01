@@ -1,21 +1,25 @@
 import axios from 'axios';
-import { MOVIES_API, CITIES_API, CINEMAS_API } from '../../constants/constants';
+import {  CITIES_API, CINEMAS_API, MOVIES_API } from '../../constants/constants';
 
-const cities = axios
+export const cityOptions = axios
                 .get(CITIES_API)
-                .then(x => citiesArr.push(x.data))
-                // .then(cities => cities.data.map(x => citiesArr.push(x)))
+                .then(x => x.data)
+                .then(cities => 
+                    cities.map(opt => ({ value: opt.name, label: opt.name }))
+                )
                 .catch(err => console.log(err));
-
-const citiesArr = [];
-export const cityOptions = citiesArr.map(opt => ({ label: opt, value: opt }));
 
 export const cinemaOptions = axios
                                 .get(CINEMAS_API)
-                                .then(cinemas => cinemas.data)
+                                .then(x => x.data)
+                                .then(cinemas => 
+                                    cinemas.map(opt => ({ value: opt.name, label: opt.name }))
+                                )
                                 .catch(err => console.log(err));
 
 export const movieOptions = axios
                                 .get(MOVIES_API)
-                                .then(movies => movies.data)
+                                .then(x => x.data)
+                                .then(movies => 
+                                    movies.map(opt => ({ value: opt.name, label: opt.name })))
                                 .catch(err => console.log(err));

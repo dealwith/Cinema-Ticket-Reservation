@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container} from 'react-bootstrap';
 import axios from 'axios';
-import { MovieSelect } from './select';
+import { CitySelect, CinemaSelect, MovieSelect } from './select';
 
 
 class MoviePage extends React.Component {
@@ -30,7 +30,9 @@ class MoviePage extends React.Component {
 
         return (
             <Container>
-                <div className="movie-filter mb-3 d-flex">
+                <div className="movie-filter mb-3 d-flex justify-content-around">
+                    <CitySelect />
+                    <CinemaSelect />
                     <MovieSelect />
                 </div>
                 <div className='card' style={{height: 'auto'}}>

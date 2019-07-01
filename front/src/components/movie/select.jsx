@@ -1,43 +1,62 @@
-import React from 'react'
-import Select from 'react-select'
-import { cityOptions , movieOptions } from './dataSelect';
+import React,{ useState, useEffect } from 'react';
+import Select from 'react-select';
+import "regenerator-runtime/runtime";
+import { cityOptions, cinemaOptions, movieOptions } from './dataSelect';
 
 
-export const CitySelect = () => (
-    <Select
-        options={ cityOptions }
-        defaultValue={ cityOptions[0] }
-        isClearable
-    />
-)
 
-// // export const CinemaSelect = () => (
-// //     <Select
-// //         options={ cinemaOptions }
-// //         defaultValue={cityOptions[0] }
-// //         isSearchable
-// //     />
-// // )
+const CitySelect = () =>  {
+    const [citites, setSities] = useState([])
+    useEffect(async () => {
+        const result = await cityOptions
+        setSities(result)
+    }, [])
 
-// export const MovieSelect = () => {
-//     return (
-//         <Select
-//             options={ city }
-//             // defaultValue={cityOptions[0]}
-            
-//         />
-//     )
-// }
+    return(
+        <Select
+            className='movie-filter__select'
+            options={ citites }
+            defaultValue={ citites[0] }
+            isSearchable
+            isClearable
+        />
+    )    
+}
 
-// import React from 'react'
-// import Select from 'react-select'
+const CinemaSelect = () =>  {
+    const [cinemas, setCinemas] = useState([])
+    useEffect(async () => {
+        const result = await cinemaOptions
+        setCinemas(result)
+    }, [])
 
-// const options = [
-//     { value: 'chocolate', label: 'Chocolate' },
-//     { value: 'strawberry', label: 'Strawberry' },
-//     { value: 'vanilla', label: 'Vanilla' }
-// ]
+    return(
+        <Select
+            className='movie-filter__select'
+            options={ cinemas }
+            defaultValue
+            isSearchable
+            isClearable
+        />
+    )    
+}
 
-// const MyComponent = () => (
-//     <Select options={options} />
-// )
+const MovieSelect = () =>  {
+    const [movies, setMovies] = useState([])
+    useEffect(async () => {
+        const result = await movieOptions
+        setMovies(result)
+    }, [])
+
+    return(
+        <Select
+            className='movie-filter__select'
+            options={ movies }
+            defaultValue={ movies[0] }
+            isSearchable
+            isClearable
+        />
+    )    
+}
+
+export { CitySelect, CinemaSelect, MovieSelect  };

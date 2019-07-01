@@ -13,6 +13,7 @@ import MoviePage from './components/movie/moviePage';
 import './scss/app.scss';
 import { createBrowserHistory } from 'history';
 export const history = createBrowserHistory();
+import "regenerator-runtime/runtime";
 
 const CinemaTicketReservation = () => 
     (

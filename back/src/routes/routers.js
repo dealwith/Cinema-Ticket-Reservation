@@ -7,6 +7,7 @@ const { PROFILE, LOGIN, SIGNUP, MOVIES } = require('../constants/constant');
 const { Movie, City, Cinema } = require('../sequelize');
 const { Op } = require('../sequelize');
 
+//authenticate
 router.post(PROFILE, passport.authenticate('jwt', { session: false }),
     (req, res) => res.send(req.user.profile)
 );
@@ -21,6 +22,7 @@ router.post(SIGNUP, async(req, res) => {
     res.json(response);
 })
 
+//search
 router.get('/', async (req, res) => {
     let q  = req.query.search
     let suggestions = await Movie.findAll({ where: { name: { [Op.iLike]: '%' + q + '%' } }})
