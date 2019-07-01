@@ -1,25 +1,26 @@
 @import 'search';
 @import 'movie-card';
 @import 'movie';
+@import 'main';
 
 body {
-  background-color: #fefefe;
-  text-align: center;
-  h1 {
-    font-size: 40px;
-    margin-top: 30px;
-  }
+    background-color: #fefefe;
+    text-align: center;
+    h1 {
+        font-size: 40px;
+        margin-top: 30px;
+    }
 
-  h4{
+    h4{
     font-size: 1.2rem;
-  }
+    }
 }
 
 .auth-back{
-  background: url(../assets/pwd_post_jbt_17_068.jpg) center no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+    background: url(../assets/pwd_post_jbt_17_068.jpg) center no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }

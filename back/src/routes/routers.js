@@ -4,7 +4,7 @@ const passport = require('passport');
 const { login, signup } = require('../services/auth');
 const { search } = require('../services/search');
 const { PROFILE, LOGIN, SIGNUP, MOVIES } = require('../constants/constant');
-const { Movie, City, Cinema } = require('../sequelize');
+const { Movie, City, Cinema, CinemaShedule } = require('../sequelize');
 const { Op } = require('../sequelize');
 
 //authenticate
@@ -50,6 +50,15 @@ router.get('/cities', async (req,res) => {
 
 router.get('/cinemas', async (req, res) => {
     await Cinema.findAll().then(cinemas => res.json(cinemas)) 
+})
+
+// cinemaShedule
+router.post('/city-select', async (req, res) => {
+    await CinemaShedule.findAll({
+        where: {
+            
+        }
+    }).then(x => res.json(x))
 })
 
 module.exports = { router };

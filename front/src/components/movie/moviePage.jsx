@@ -2,12 +2,15 @@ import React from 'react';
 import { Container} from 'react-bootstrap';
 import axios from 'axios';
 import { CitySelect, CinemaSelect, MovieSelect } from './select';
+import Shedule from './shedule';
 
 
 class MoviePage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { movie: {} };
+        this.state = { 
+            movie: {} 
+        };
     }
 
     getMovie = () => {
@@ -21,6 +24,10 @@ class MoviePage extends React.Component {
             .catch(err => err.data)
     }
 
+    handleCityChange = () => {
+        axios.post('http://localhost:3000/city-select')
+    }
+
     componentDidMount = () => {
         this.getMovie()
     }
@@ -31,11 +38,11 @@ class MoviePage extends React.Component {
         return (
             <Container>
                 <div className="movie-filter mb-3 d-flex justify-content-around">
-                    <CitySelect />
+                    <CitySelect handleCityChange={ this.handleCityChange }/>
                     <CinemaSelect />
                     <MovieSelect />
                 </div>
-                <div className='card' style={{height: 'auto'}}>
+                <div className='card mb-4' style={{height: 'auto'}}>
                     <div className="row no-gutters">
                         <div className="col md-5">
                             <img src={movie.imgUrl} alt="" className="card-img rounded" style={{maxHeight: 500, objectFit: 'contain'}}/>
@@ -49,7 +56,7 @@ class MoviePage extends React.Component {
                     </div>
                 </div>
                 <div className="cinema-schedules">
-
+                    <Shedule />
                 </div>
             </Container>
         )

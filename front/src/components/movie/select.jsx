@@ -2,29 +2,27 @@ import React,{ useState, useEffect } from 'react';
 import Select from 'react-select';
 import "regenerator-runtime/runtime";
 import { cityOptions, cinemaOptions, movieOptions } from './dataSelect';
+import axios from 'axios';
 
 
 
-const CitySelect = () =>  {
+const CitySelect = (props) =>  {
     const [citites, setSities] = useState([])
     useEffect(async () => {
         const result = await cityOptions
         setSities(result)
     }, [])
 
-    const handleChange = () => {
-        
-    }
-
     return(
         <Select
             className='movie-filter__select'
+            classNamePrefix='ctr'
             options={ citites }
             defaultValue={ citites[0] }
             isSearchable
             isClearable
             placeholder='All cities'
-            onChange={ handleChange }
+            onChange={ props.handleCityChange }
         />
     )    
 }
@@ -38,6 +36,7 @@ const CinemaSelect = () =>  {
 
     return(
         <Select
+            classNamePrefix='ctr'
             className='movie-filter__select'
             options={ cinemas }
             defaultValue
@@ -57,6 +56,7 @@ const MovieSelect = () =>  {
 
     return(
         <Select
+            classNamePrefix='ctr'
             className='movie-filter__select'
             options={ movies }
             defaultValue={ movies[0] }
