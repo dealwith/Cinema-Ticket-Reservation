@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Dropdown } from 'react-bootstrap';
+import { Container} from 'react-bootstrap';
 import axios from 'axios';
 import { MovieSelect } from './select';
 
@@ -28,14 +28,10 @@ class MoviePage extends React.Component {
     render() {
         const movie = this.state.movie;
 
-        const cinemas = [
-            'Red Star',
-            'October'
-        ]
         return (
             <Container>
                 <div className="movie-filter mb-3 d-flex">
-                    <MovieSelect/>
+                    <MovieSelect />
                 </div>
                 <div className='card' style={{height: 'auto'}}>
                     <div className="row no-gutters">

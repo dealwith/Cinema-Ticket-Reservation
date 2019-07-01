@@ -4,7 +4,7 @@ const passport = require('passport');
 const { login, signup } = require('../services/auth');
 const { search } = require('../services/search');
 const { PROFILE, LOGIN, SIGNUP, MOVIES } = require('../constants/constant');
-const { Movie } = require('../sequelize');
+const { Movie, City, Cinema } = require('../sequelize');
 const { Op } = require('../sequelize');
 
 router.post(PROFILE, passport.authenticate('jwt', { session: false }),
@@ -40,6 +40,14 @@ router.get(MOVIES + '/:id', async (req, res) => {
         let id = req.params.id;
         const response = await Movie.findByPk(id)
         res.send(response)
-    })
+})
+
+router.get('/cities', async (req,res) => {
+    await City.findAll().then(cities => res.json(cities))
+})
+
+router.get('/cinemas', async (req, res) => {
+    await Cinema.findAll().then(cinemas => res.json(cinemas)) 
+})
 
 module.exports = { router };
