@@ -54,13 +54,32 @@ router.get('/cinemas', async (req, res) => {
 
 // cinemaShedule
 router.post('/city-select', async (req, res) => {
-    let reqId = req.body.citySelect;
+    let reqCityId = req.body.citySelect;
+    await City.findAll({
+        include: [{
+            model: Cinema,
+            where: {
+                cityId: reqCityId
+            },
+            include: [{
+                model: CinemaShedule,
+            }]
+        }]
+    })
+    .then(shedules => res.json(shedules))
+})
+
+router.post('/cinema-select', async (req, res) => {
+    let reqCityId = req.body.citySelect;
+    let reqCinemaId = req.body.cinemaSelect;
     await Cinema.findAll({
         where: {
-            cityId: reqId
+            id: reqCinemaId,
+            cityId: {
+                [Op.or]: [ reqCityId, undefined ]
+            }
         }
     })
-    // await CinemaShedule.findAll({ included: [{all: true, nested: true}] })
     .then(shedules => res.json(shedules))
 })
 

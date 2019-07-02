@@ -40,6 +40,7 @@ City.hasMany(Cinema);
 Cinema.hasMany(Room);
 Movie.belongsToMany(Cinema, {through: CinemaShedule});
 Cinema.belongsToMany(Movie, {through: CinemaShedule});
+Cinema.hasMany(CinemaShedule);
 Cinema.hasMany(Room);
 Room.hasMany(Place);
 PlaceType.hasMany(Place);
