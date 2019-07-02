@@ -15,6 +15,7 @@ const CitySelect = (props) =>  {
 
     return(
         <Select
+            name='citySelect'
             className='movie-filter__select'
             classNamePrefix='ctr'
             options={ citites }
@@ -36,6 +37,7 @@ const CinemaSelect = () =>  {
 
     return(
         <Select
+            name='cinemaSelect'
             classNamePrefix='ctr'
             className='movie-filter__select'
             options={ cinemas }
@@ -56,6 +58,7 @@ const MovieSelect = () =>  {
 
     return(
         <Select
+            name='movieSelect'
             classNamePrefix='ctr'
             className='movie-filter__select'
             options={ movies }

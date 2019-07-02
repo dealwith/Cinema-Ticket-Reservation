@@ -54,11 +54,14 @@ router.get('/cinemas', async (req, res) => {
 
 // cinemaShedule
 router.post('/city-select', async (req, res) => {
-    await CinemaShedule.findAll({
+    let reqId = req.body.citySelect;
+    await Cinema.findAll({
         where: {
-            
+            cityId: reqId
         }
-    }).then(x => res.json(x))
+    })
+    // await CinemaShedule.findAll({ included: [{all: true, nested: true}] })
+    .then(shedules => res.json(shedules))
 })
 
 module.exports = { router };

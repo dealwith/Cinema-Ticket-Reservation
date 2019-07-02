@@ -11,6 +11,12 @@ module.exports = (sequelize, Sequelize) => {
         },
         seats:{
             type: Sequelize.INTEGER
+        },
+        movieId: {
+            type: Sequelize.INTEGER
+        },
+        cinemaId: {
+            type: Sequelize.INTEGER
         }
     },
     {
