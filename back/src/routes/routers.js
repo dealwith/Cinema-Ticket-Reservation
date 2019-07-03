@@ -53,7 +53,7 @@ router.get('/cinemas', async (req, res) => {
 })
 
 // cinemaShedule
-router.post('/city-select', async (req, res) => {
+router.get('/city-select', async (req, res) => {
     let reqCityId = req.body.citySelect;
     await City.findAll({
         include: [{
@@ -69,15 +69,38 @@ router.post('/city-select', async (req, res) => {
     .then(shedules => res.json(shedules))
 })
 
-router.post('/cinema-select', async (req, res) => {
+router.get(MOVIES + '/filter?', async (req, res) => {
+    // let reqCityId = req.query.citySelect;
+
+    let city = req.query.city;
+    let cinema = req.query.cinema;
+    let movie = req.query.movie;
+
+    res.send(city, cinema, movie)
+    // console.log(cinema)
+    // console.log(movie)
+    
+    // await City.findAll({
+    //     include: [{
+    //         model: Cinema,
+    //         where: {
+    //             cityId: reqCityId
+    //         },
+    //         include: [{
+    //             model: CinemaShedule,
+    //         }]
+    //     }]
+    // })
+    //     .then(shedules => res.json(shedules))
+})
+
+router.get('/cinema-select', async (req, res) => {
     let reqCityId = req.body.citySelect;
     let reqCinemaId = req.body.cinemaSelect;
     await Cinema.findAll({
         where: {
             id: reqCinemaId,
-            cityId: {
-                [Op.or]: [ reqCityId, undefined ]
-            }
+            cityId: reqCityId
         }
     })
     .then(shedules => res.json(shedules))

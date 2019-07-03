@@ -2,8 +2,6 @@ import React,{ useState, useEffect } from 'react';
 import Select from 'react-select';
 import "regenerator-runtime/runtime";
 import { cityOptions, cinemaOptions, movieOptions } from './dataSelect';
-import axios from 'axios';
-
 
 
 const CitySelect = (props) =>  {
@@ -15,7 +13,7 @@ const CitySelect = (props) =>  {
 
     return(
         <Select
-            name='citySelect'
+            
             className='movie-filter__select'
             classNamePrefix='ctr'
             options={ citites }
@@ -23,12 +21,12 @@ const CitySelect = (props) =>  {
             isSearchable
             isClearable
             placeholder='All cities'
-            onChange={ props.handleCityChange }
+            onChange={ props.handleChange }
         />
     )    
 }
 
-const CinemaSelect = () =>  {
+const CinemaSelect = (props) =>  {
     const [cinemas, setCinemas] = useState([])
     useEffect(async () => {
         const result = await cinemaOptions
@@ -37,7 +35,6 @@ const CinemaSelect = () =>  {
 
     return(
         <Select
-            name='cinemaSelect'
             classNamePrefix='ctr'
             className='movie-filter__select'
             options={ cinemas }
@@ -45,11 +42,12 @@ const CinemaSelect = () =>  {
             isSearchable
             isClearable
             placeholder='All cinemas'
+            onChange={props.handleChange}
         />
     )    
 }
 
-const MovieSelect = () =>  {
+const MovieSelect = (props) =>  {
     const [movies, setMovies] = useState([])
     useEffect(async () => {
         const result = await movieOptions
@@ -66,6 +64,7 @@ const MovieSelect = () =>  {
             isSearchable
             isClearable
             placeholder='All movies'
+            onChange={ props.handleChange }
         />
     )    
 }

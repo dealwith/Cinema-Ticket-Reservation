@@ -16,16 +16,14 @@ module.exports.login  = (payload) => {
     const { email, password } = payload;
     
     try{
-        const user = User.findOne({ where: { email: email , password: password} })
-
-        if(!user.email && !user.password) {
-            return {message: 'Not enought data'}
-        } else if(!user) {
-            return {message: 'No user found'};
-        }
-    
-        return generateToken(user.id)
-
+        if (!email || !password) {
+            return { message: 'Not enough data' }
+        } else if (!user) {
+            return { message: 'No user found' };
+        }else {
+            const user = User.findOne({ where: { email: email, password: password } })
+            return generateToken(user.id)
+        }      
     } catch(e) {
         console.error(e);
         return { message: 'Authentication failed.'}
@@ -37,13 +35,15 @@ module.exports.signup  = async(payload) => {
     const { email, password } = payload;
 
     try{
-        const user = await User.findOne({where: { email: email }})
-        if (user) return {message: 'That email is already taken.'};
+        // const user = await User.findOne({where: { email: email }})
+        // if (user) return {message: 'That email is already taken.'};
         
         const newUser = await User.create({
             email,
             password
         });
+
+        console.log(newUser)
         
         return generateToken(newUser.id)
 

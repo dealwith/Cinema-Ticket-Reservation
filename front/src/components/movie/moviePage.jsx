@@ -9,7 +9,10 @@ class MoviePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            movie: {} 
+            movie: {},
+            citySelect: '',
+            cinemaSelect: '',
+            movieSelect: ''
         };
     }
 
@@ -24,23 +27,70 @@ class MoviePage extends React.Component {
             .catch(err => err.data)
     }
 
-    handleCityChange = () => {
-        axios.post('http://localhost:3000/city-select')
+
+    handleCityChange = e => {
+        const val = e.value;
+        this.setState({ citySelect: val })
+        console.log(e);
     }
 
-    componentDidMount = () => {
-        this.getMovie()
+    handleCinemaChange = e => {
+        const val = e.value;
+        this.setState({ cinemaSelect: val })
+        console.log(e);
+    }
+
+    handleMovieChange = e => {
+        const val = e.value;
+        this.setState({ movieSelect: val })
+        console.log(e);
+    }
+
+    
+
+    getShedules = () => {
+        const state = this.state;
+        const CITY_SELECT = state.citySelect;
+        const CINEMA_SELECT = state.cinemaSelect
+        const MOVIE_SELECT = state.movieSelect;
+        
+        axios
+            .get(`http://localhost:3000/movies/filter?city=${CITY_SELECT}&cinema=${CINEMA_SELECT}&movie=${MOVIE_SELECT}`)
+            .then(result => console.log(result))
+    }
+
+    componentDidMount() {
+        this.getMovie();
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        this.getShedules();
     }
     
+    
     render() {
-        const movie = this.state.movie;
 
+        const state = this.state;
+        const movie = state.movie;
+        const CITY_SELECT = state.citySelect;
+        const CINEMA_SELECT = state.cinemaSelect
+        const MOVIE_SELECT = state.movieSelect;
+        
         return (
             <Container>
                 <div className="movie-filter mb-3 d-flex justify-content-around">
-                    <CitySelect handleCityChange={ this.handleCityChange }/>
-                    <CinemaSelect />
-                    <MovieSelect />
+                    <CitySelect name='citySelect' 
+                                value={ CITY_SELECT } 
+                                handleChange={ this.handleCityChange } 
+                    />
+                    <CinemaSelect   name='cinemaSelect' 
+                                    value={ CINEMA_SELECT } 
+                                    handleChange={this.handleCinemaChange} 
+                    />
+                    <MovieSelect    name='movieSelect' 
+                                    value={ MOVIE_SELECT }      
+                                    handleChange={this.handleMovieChange} 
+                    />
                 </div>
                 <div className='card mb-4' style={{height: 'auto'}}>
                     <div className="row no-gutters">

@@ -15,8 +15,7 @@ export default class Search extends React.Component {
             results: [],
             city: '',
             cinema: '',
-            seats: 1,
-            toSearch: false
+            seats: 1
         }
         this.search = React.createRef();
     }
