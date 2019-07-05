@@ -55,7 +55,7 @@ class MoviePage extends React.Component {
         const MOVIE_SELECT = state.movieSelect;
         
         axios
-            .get(`http://localhost:3000/movies/filter?city=${CITY_SELECT}&cinema=${CINEMA_SELECT}&movie=${MOVIE_SELECT}`)
+            .get(`http://localhost:3000/movies/:id?city=${CITY_SELECT}&cinema=${CINEMA_SELECT}&movie=${MOVIE_SELECT}`)
             .then(result => console.log(result))
     }
 

@@ -1,4 +1,5 @@
 # REACT IGNORE
+adminTemplate/
 # Logs
 logs
 *.log

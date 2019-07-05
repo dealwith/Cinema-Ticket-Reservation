@@ -46,8 +46,61 @@ router.get(MOVIES, async (req, res) => {
 })
 
 router.get(MOVIES + '/:id', async (req, res, next) => {
-        let id = req.params.id;
-        const response = await Movie.findByPk(id)
+        let movieId = req.params.id;
+        let cityParam = req.query.city;
+        let cinemaParam = req.query.cinema;
+        let movieParam = req.query.movie;
+        
+       
+
+        if(cityParam) {
+            const cityAdd = await City.finAll({
+                where: {
+                    name: cityParam
+                },
+                include: [{
+                    model: Cinema,
+                    include: [{
+                        model: CinemaShedule,
+                    }]
+                }]
+            })
+            console.log(cityAdd)
+            return response.cityShedule = cityAdd
+        }
+
+        const response = { 
+            movie: await Movie.findByPk(movieId),
+            cityShedule: ''
+            // cinemaShedule,
+            // movieShedule
+        }
+
+        // if(cinemaParam) {
+        //     const cinemaAdd = await CinemaShedule.findAll({
+        //         include: [{
+        //             model: Cinema,
+        //             where: {
+        //                 name: cinemaParam
+        //             }
+        //         }]
+        //     })
+        //     console.log(cinemaAdd)
+        //     response[cinemaShedule] = cinemaAdd
+        // }
+
+        // if(movieParam) {
+        //     const movieAdd = await Movie.findAll({
+        //         where: {
+        //             name: movieParam
+        //         },
+        //         include: [{
+        //             model: CinemaShedule
+        //         }]
+        //     })
+        //     response[movieShedule] = movieAdd
+        // }
+        
         res.send(response)
 })
 
@@ -58,33 +111,6 @@ router.get(CITIES, async (req,res) => {
 router.get(CINEMAS, async (req, res) => {
     await Cinema.findAll().then(cinemas => res.json(cinemas)) 
 })
-
-router.get(MOVIES, (req, res) => {
-
-    // let reqCityId = req.query.citySelect;
-    let city = req.params.city;
-    // let cinema = req.query.cinema;
-    // let movie = req.query.movie;
-
-    // res.send(city, cinema, movie)
-    // res.json(city, cinema, movie)
-    // await res.json(city, cinema. movie)
-    console.log(city)
-    res.send(city)
-    // await City.findAll({
-    //     include: [{
-    //         model: Cinema,
-    //         where: {
-    //             cityId: reqCityId
-    //         },
-    //         include: [{
-    //             model: CinemaShedule,
-    //         }]
-    //     }]
-    // })
-    //     .then(shedules => res.json(shedules))
-})
-
 
 
 // cinemaShedule

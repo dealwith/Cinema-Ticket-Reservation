@@ -1,12 +1,12 @@
 import React from 'react';
 import Search from '../search/search';
-import {history} from '../../index'
+import { history } from '../../index'
 import { Navbar, Container, Row, Col, Form,  Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-        if(history.location.pathname == '/loginPage' || history.location.pathname == '/registratePage'){
+        if( history.location.pathname == '/loginPage' || history.location.pathname == '/registratePage' || history.location.pathname == '/admin'){
             return null
         } else {
             return(

@@ -10,11 +10,15 @@ import Main from './components/main/main';
 import LoginPage from './components/auth/loginPage';
 import RegistratePage from './components/auth/registratePage';
 import MoviePage from './components/movie/moviePage';
+import AdminPanel from './components/adminPanel/admin'
 import './scss/app.scss';
 import { createBrowserHistory } from 'history';
 import Footer from './components/footer/footer'
 export const history = createBrowserHistory();
 import "regenerator-runtime/runtime";
+import 'redux';
+
+
 
 
 const CinemaTicketReservation = () => 
@@ -27,8 +31,10 @@ const CinemaTicketReservation = () =>
                 <Route path="/loginPage" component={ LoginPage } />
                 <Route path="/registratePage" component={ RegistratePage } />
                 <Route path="/movies/:movieId" component={ MoviePage } />
+                <Route path='/admin'  component={ AdminPanel } />
             </Main>
             <Footer />
+            
         </Router>
     )
 
