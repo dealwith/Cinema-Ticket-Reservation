@@ -47,34 +47,32 @@ router.get(MOVIES, async (req, res) => {
 
 router.get(MOVIES + '/:id', async (req, res, next) => {
         let movieId = req.params.id;
-        let cityParam = req.query.city;
-        let cinemaParam = req.query.cinema;
-        let movieParam = req.query.movie;
-        
-       
+        // let cityParam = req.query.city;
+        // let cinemaParam = req.query.cinema;
+        // let movieParam = req.query.movie;
 
-        if(cityParam) {
-            const cityAdd = await City.finAll({
-                where: {
-                    name: cityParam
-                },
-                include: [{
-                    model: Cinema,
-                    include: [{
-                        model: CinemaShedule,
-                    }]
-                }]
-            })
-            console.log(cityAdd)
-            return response.cityShedule = cityAdd
-        }
+        // if(cityParam) {
+        //     const cityAdd = await City.finAll({
+        //         where: {
+        //             name: cityParam
+        //         },
+        //         include: [{
+        //             model: Cinema,
+        //             include: [{
+        //                 model: CinemaShedule,
+        //             }]
+        //         }]
+        //     })
+        //     console.log(cityAdd)
+        //     return response.cityShedule = cityAdd
+        // }
 
-        const response = { 
-            movie: await Movie.findByPk(movieId),
-            cityShedule: ''
+        // const response = { 
+            // movie: await Movie.findByPk(movieId),
+            // cityShedule: ''
             // cinemaShedule,
             // movieShedule
-        }
+        // }
 
         // if(cinemaParam) {
         //     const cinemaAdd = await CinemaShedule.findAll({
@@ -100,8 +98,8 @@ router.get(MOVIES + '/:id', async (req, res, next) => {
         //     })
         //     response[movieShedule] = movieAdd
         // }
-        
-        res.send(response)
+        // res.send(response)
+        await Movie.findByPk(movieId).then(result => res.json(result))
 })
 
 router.get(CITIES, async (req,res) => {

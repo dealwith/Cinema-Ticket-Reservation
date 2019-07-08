@@ -18,3 +18,14 @@ routeToDisplay (middleawres = [], routeToVisit, directedFrom = '', extra = {}) {
         console.log(e)
     }
 }
+
+privateRoute( component, pathname = '/' ) {
+    return (    
+            auth.fetchCurrentUser !== null 
+            ?   this._getRouteReturn(true, component)
+            :   this._getRouteReturn(false,
+                <Redirect to={{ pathname: '/loginPage',
+                state: { from: pathname }
+                }} />)
+            )
+}
