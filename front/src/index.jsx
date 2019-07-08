@@ -19,8 +19,6 @@ import "regenerator-runtime/runtime";
 import 'redux';
 
 
-
-
 const CinemaTicketReservation = () => 
     (
         <Router history={ history }>
@@ -31,10 +29,11 @@ const CinemaTicketReservation = () =>
                 <Route path="/loginPage" component={ LoginPage } />
                 <Route path="/registratePage" component={ RegistratePage } />
                 <Route path="/movies/:movieId" component={ MoviePage } />
-                <Route path='/admin'  component={ AdminPanel } />
+                <Route path='/admin' component={ AdminPanel } />
+                <Route path='/admin/movies' component={ '' } />
+                <Route path='/admin/schedules' component={ '' } />
             </Main>
             <Footer />
-            
         </Router>
     )
 

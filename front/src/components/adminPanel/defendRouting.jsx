@@ -41,4 +41,3 @@ function adminAccess( component, pathname = '/' ) {
             pathname: `${this._account_help}${constants.userRoles.admin}`
          }} />)
 }
-

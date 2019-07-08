@@ -17,7 +17,6 @@ const Header = () => {
                                 <Col>
                                     <Navbar.Brand href="/">Cinema-Ticket-Reservarion</Navbar.Brand>
                                 </Col>
-                                
                                 <Col className='d-flex align-items-start'>
                                     <Form inline>
                                         <Link to="/loginPage">

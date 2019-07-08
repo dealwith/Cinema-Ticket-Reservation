@@ -22,8 +22,6 @@ export default class MovieCard extends React.Component {
             .catch(err => console.log(err))
     }
 
-    
-
     componentDidMount(){
         this.getMovies()
     }

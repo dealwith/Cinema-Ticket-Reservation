@@ -13,7 +13,6 @@ const CitySelect = (props) =>  {
 
     return(
         <Select
-            
             className='movie-filter__select'
             classNamePrefix='ctr'
             options={ citites }

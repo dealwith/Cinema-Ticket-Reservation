@@ -35,16 +35,14 @@ module.exports.signup  = async(payload) => {
     const { email, password } = payload;
 
     try{
-        // const user = await User.findOne({where: { email: email }})
-        // if (user) return {message: 'That email is already taken.'};
+        const user = await User.findOne({where: { email: email }})
+        if (user) return {message: 'That email is already taken.'};
         
         const newUser = await User.create({
             email,
             password
         });
 
-        console.log(newUser)
-        
         return generateToken(newUser.id)
 
     } catch(e) {

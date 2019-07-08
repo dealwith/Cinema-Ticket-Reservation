@@ -112,6 +112,10 @@ router.get(CINEMAS, async (req, res) => {
 
 
 // cinemaShedule
+router.get('/admin/schedules', async (req, res) => {
+    await CinemaShedule.findAll().then(schedules => res.json(schedules))
+})
+
 router.get('/city-select', async (req, res) => {
     let reqCityId = req.body.citySelect;
     await City.findAll({
