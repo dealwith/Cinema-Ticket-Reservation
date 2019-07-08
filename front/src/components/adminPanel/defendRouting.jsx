@@ -19,7 +19,8 @@ routeToDisplay (middleawres = [], routeToVisit, directedFrom = '', extra = {}) {
     }
 }
 
-privateRoute( component, pathname = '/' ) {
+//exmple of private route
+function privateRoute( component, pathname = '/' ) {
     return (    
             auth.fetchCurrentUser !== null 
             ?   this._getRouteReturn(true, component)
@@ -29,3 +30,15 @@ privateRoute( component, pathname = '/' ) {
                 }} />)
             )
 }
+
+//another example of accesing page
+function adminAccess( component, pathname = '/' ) {
+    if(utils.arrayContains(role, 'admin')) {
+        return this._getRouteReturn(true, component)
+    }
+    return this._getRouteReturn(false, 
+        <Redirect to={{ 
+            pathname: `${this._account_help}${constants.userRoles.admin}`
+         }} />)
+}
+
