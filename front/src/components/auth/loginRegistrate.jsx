@@ -122,7 +122,7 @@ export class Registrate extends React.Component{
         return (
             <Card>
                 <Card.Header
-                    className='bg-dark Card-auth__header'>
+                    className='Card-auth__header'>
                     <Card.Title
                         id="contained-Card-title-vcenter"
                         className='Card-auth__title'

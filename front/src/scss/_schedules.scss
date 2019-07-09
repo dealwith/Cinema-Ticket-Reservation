@@ -1,0 +1,5 @@
+.str-schedules-container {
+    display: grid;
+    grid-gap: 2%;
+    grid-template-columns: repeat(3, 1fr);
+}

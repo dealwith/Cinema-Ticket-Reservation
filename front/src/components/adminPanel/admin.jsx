@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { MOVIES_API, SCHEDULES_API } from '../../constants/constants';
-import Shedule from '../movie/shedule';
+import React from 'react';
+import { MOVIES_API } from '../../constants/constants';
 import axios from 'axios';
 
 
-// const AdminPanel = props => {
-//     const [movies, setMovies] = useState([]);
-//     // useEffect(() => {
-//     //     
-//     //         setMovies(movies)
-//     //     };
-//     // }, [])
-  
-
-   
-    
-//     console.log(props.history)
-//     return (
-        
-//     )
-// }
-
-
-
-class AdminPanel extends React.Component{
+class Admin extends React.Component{
     constructor(props) {
         super(props)
     
@@ -34,6 +14,7 @@ class AdminPanel extends React.Component{
 
     getMovies = async (event) => {
         const { match: { url } } = this.props;
+        console.log(url)
         event.preventDefault();
         await axios.get(MOVIES_API);
         await this.props.history.push(url + '/movies')
@@ -42,19 +23,11 @@ class AdminPanel extends React.Component{
     getSchedules = (event) => {
         const { match: { url } } = this.props;
         event.preventDefault();
-        axios
-            .get(SCHEDULES_API)
-            .then((res) => {
-                this.state.shedules.push(res.data)
-            })
-            .catch(err => console.log(err))
-        
         return this.props.history.push(url + '/schedules')
     }
 
     render() {
-        const SHEDULES = this.state.shedules;
-
+        const path = location.pathname;
         return(
             <>
                 <nav className='navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow'>
@@ -83,11 +56,12 @@ class AdminPanel extends React.Component{
                         <div className="str-admin-main col-md-9 ml-sm-auto col-lg-10 px-4">
                             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h2 className="str-admin-dashboard">
-                                    Dashboard
+                                    {   path === '/admin' 
+                                        ? 'Dashboard' : path === '/admin/schedules' 
+                                        ? 'Schedules' : 'Error' }
                                 </h2>
                             </div>
-                            { this.props.location.pathname == '/admin/schedules' ?  <Shedule data={ SHEDULES } /> : '' }
-                            {/* <Shedule /> */}
+                            { this.props.children }
                         </div>
                     </div>
                 </div>
@@ -98,4 +72,4 @@ class AdminPanel extends React.Component{
 }
 
 
-export default AdminPanel
+export default Admin

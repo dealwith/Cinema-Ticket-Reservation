@@ -111,23 +111,37 @@ router.get(CINEMAS, async (req, res) => {
 })
 
 
-// cinemaShedule
+// Shedules
 router.get('/admin/schedules', async (req, res) => {
-    await CinemaShedule.findAll().then(schedules => res.json(schedules))
+    await City
+            .findAll({
+                include: [{
+                    model: Cinema,
+                    include: [{
+                        model: CinemaShedule
+                    }]
+                }]
+            })
+            .then(x => res.json(x))
 })
 
 router.get('/city-select', async (req, res) => {
     let reqCityId = req.body.citySelect;
     await City.findAll({
-        include: [{
-            model: Cinema,
-            where: {
-                cityId: reqCityId
-            },
-            include: [{
-                model: CinemaShedule,
-            }]
-        }]
+        include: [
+            {
+                model: Cinema,
+                where: {
+                    cityId: reqCityId
+                },
+                include: [{
+                    model: CinemaShedule,
+                    include: [{
+                        model: Movie
+                    }]
+                }]
+            }
+    ]
     })
     .then(shedules => res.json(shedules))
 })

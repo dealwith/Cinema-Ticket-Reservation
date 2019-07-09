@@ -2,7 +2,7 @@ import React from 'react';
 import { Container} from 'react-bootstrap';
 import axios from 'axios';
 import { CitySelect, CinemaSelect, MovieSelect } from './select';
-import Shedule from './shedule';
+import Schedule from './schedule';
 
 
 class MoviePage extends React.Component {
@@ -106,7 +106,7 @@ class MoviePage extends React.Component {
                     </div>
                 </div>
                 <div className="cinema-schedules">
-                    <Shedule />
+                    <Schedule />
                 </div>
             </Container>
         )
