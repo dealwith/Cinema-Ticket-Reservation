@@ -118,7 +118,7 @@ router.get('/admin/schedules', async (req, res) => {
                 include: [{
                     model: Cinema,
                     include: [{
-                        model: CinemaShedule
+                        model:Movie
                     }]
                 }]
             })

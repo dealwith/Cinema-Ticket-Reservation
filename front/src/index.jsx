@@ -25,7 +25,7 @@ const CinemaTicketReservation = () =>
         <Router history={ history }>
             <Header />
             <Main>
-                <Switch>
+                {/* <Switch> */}
                     <Route path="/" exact component={ MovieCardContainer } />
                     <Route path="/search" component={ SearchResult } /> 
                     <Route path="/loginPage" component={ LoginPage } />
@@ -34,7 +34,7 @@ const CinemaTicketReservation = () =>
                     <Route path='/admin' exact component={ Admin } />
                     <Route path='/admin/movies' component={ '' } />
                     <Route path='/admin/schedules' component={ AdminSchedules } />
-                </Switch>
+                {/* </Switch> */}
             </Main>
             <Footer />
         </Router>

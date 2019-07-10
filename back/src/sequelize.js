@@ -38,6 +38,7 @@ const Role = RoleModel(sequelize, Sequelize);
 Role.belongsTo(User);
 City.hasMany(Cinema);
 Cinema.hasMany(Room);
+// CinemaShedule.hasMany(Movie)
 Movie.belongsToMany(Cinema, {through: CinemaShedule});
 Cinema.belongsToMany(Movie, {through: CinemaShedule});
 Cinema.hasMany(CinemaShedule);

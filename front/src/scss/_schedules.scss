@@ -1,5 +1,18 @@
 .str-schedules-container {
     display: grid;
     grid-gap: 2%;
-    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+}
+
+.str-schedule-item{
+    height: fit-content;
+
+    &__cards > div:not(:last-child){
+        margin-right: 30px;
+    }
+    &__img{
+        height: 270px;
+        width: 210px;
+        object-fit: cover;
+    }
 }
