@@ -15,6 +15,7 @@
     "@coreui/react": "^2.5.1",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "formik": "^1.5.7",
     "history": "^4.9.0",
     "jq": "^1.7.2",
     "jquery": "^3.4.1",
@@ -30,7 +31,9 @@
     "react-router-dom": "^5.0.0",
     "react-select": "^2.0.0-beta.7",
     "redux": "^4.0.1",
-    "regenerator-runtime": "^0.13.2"
+    "regenerator-runtime": "^0.13.2",
+    "yap": "0.0.2",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

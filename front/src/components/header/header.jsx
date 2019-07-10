@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 
 
 const Header = () => {
-        if( history.location.pathname == '/loginPage' || history.location.pathname == '/registratePage' || history.location.pathname == '/admin'){
+        if( history.location.pathname == '/loginPage' 
+            || history.location.pathname == '/registratePage' 
+            || history.location.pathname.startsWith('/admin') 
+        ) {
             return null
         } else {
             return(

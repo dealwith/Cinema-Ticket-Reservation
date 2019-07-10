@@ -1,6 +1,5 @@
 import React from 'react';
 import { MOVIES_API } from '../../constants/constants';
-import axios from 'axios';
 
 
 class Admin extends React.Component{
@@ -14,9 +13,7 @@ class Admin extends React.Component{
 
     getMovies = async (event) => {
         const { match: { url } } = this.props;
-        console.log(url)
         event.preventDefault();
-        await axios.get(MOVIES_API);
         await this.props.history.push(url + '/movies')
     }
 
@@ -45,10 +42,10 @@ class Admin extends React.Component{
                             <div className="str-sidebar-sticky">
                                 <ul className="nav flex-column align-items-start">
                                     <li className="nav-item">
-                                        <a href="JavaScript:void(0);" onClick={ this.getMovies } className="nav-link">Movies</a>
+                                        <a href="JavaScript:void(0);" onClick={ this.getMovies } className="nav-link">Add movie</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="JavaScript:void(0);" onClick={ this.getSchedules } className="nav-link">Cinemas</a>
+                                        <a href="JavaScript:void(0);" onClick={ this.getSchedules } className="nav-link">Schedules</a>
                                     </li>
                                 </ul>
                             </div>                       
@@ -56,9 +53,10 @@ class Admin extends React.Component{
                         <div className="str-admin-main col-md-9 ml-sm-auto col-lg-10 px-4">
                             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h2 className="str-admin-dashboard">
-                                    {   path === '/admin' 
-                                        ? 'Dashboard' : path === '/admin/schedules' 
-                                        ? 'Schedules' : 'Error' }
+                                    {   path === '/admin' ? 'Dashboard' 
+                                        : path === '/admin/schedules' ? 'Schedules' 
+                                        : path === '/admin/movies' ? 'Movies' :
+                                        'Name not found' }
                                 </h2>
                             </div>
                             { this.props.children }
