@@ -6,7 +6,9 @@ const { search } = require('../services/search');
 const   {   PROFILE, 
             LOGIN, 
             SIGNUP, 
-            MOVIES, 
+            MOVIES,
+            MOVIES_ADD,
+            MOVIE_BY_ID, 
             SEARCH, 
             CINEMAS, 
             CITIES
@@ -19,8 +21,8 @@ router.post(PROFILE, passport.authenticate('jwt', { session: false }),
     (req, res) => res.send(req.user.profile)
 );
 
-router.post(LOGIN, (req, res) => {
-    const response = login(req.body);
+router.post(LOGIN, async (req, res) => {
+    const response = await login(req.body);
     res.json(response);
 });
 
@@ -41,65 +43,70 @@ router.post(SEARCH, async (req, res) => {
     res.json(response);
 })
 
+//movies
 router.get(MOVIES, async (req, res) => {
     await Movie.findAll().then(movies => res.json(movies))
 })
 
-router.get(MOVIES + '/:id', async (req, res, next) => {
+router.get(MOVIE_BY_ID, async (req, res, next) => {
         let movieId = req.params.id;
-        // let cityParam = req.query.city;
-        // let cinemaParam = req.query.cinema;
-        // let movieParam = req.query.movie;
+        let cityParam = req.query.city;
+        let cinemaParam = req.query.cinema;
+        let movieParam = req.query.movie;
 
-        // if(cityParam) {
-        //     const cityAdd = await City.finAll({
-        //         where: {
-        //             name: cityParam
-        //         },
-        //         include: [{
-        //             model: Cinema,
-        //             include: [{
-        //                 model: CinemaShedule,
-        //             }]
-        //         }]
-        //     })
-        //     console.log(cityAdd)
-        //     return response.cityShedule = cityAdd
-        // }
+        let cityAdd, cinemaAdd, movieAdd;
 
-        // const response = { 
-            // movie: await Movie.findByPk(movieId),
-            // cityShedule: ''
-            // cinemaShedule,
-            // movieShedule
-        // }
+        if(cityParam) {
+            cityAdd = await City.findAll({
+                where: {
+                    name: cityParam
+                },
+                include: [{
+                    model: Cinema,
+                    include: [{
+                        model: CinemaShedule,
+                    }]
+                }]
+            })
+        }
 
-        // if(cinemaParam) {
-        //     const cinemaAdd = await CinemaShedule.findAll({
-        //         include: [{
-        //             model: Cinema,
-        //             where: {
-        //                 name: cinemaParam
-        //             }
-        //         }]
-        //     })
-        //     console.log(cinemaAdd)
-        //     response[cinemaShedule] = cinemaAdd
-        // }
+        
 
-        // if(movieParam) {
-        //     const movieAdd = await Movie.findAll({
-        //         where: {
-        //             name: movieParam
-        //         },
-        //         include: [{
-        //             model: CinemaShedule
-        //         }]
-        //     })
-        //     response[movieShedule] = movieAdd
-        // }
-        // res.send(response)
+        if(cinemaParam) {
+            cinemaAdd = await Cinema.findOne({
+                where: {
+                    name: cinemaParam
+                }
+            })
+        }
+
+        if(movieParam) {
+            movieAdd = await Movie.findAll({
+                where: {
+                    name: movieParam
+                }
+            })
+        }
+
+        const response = {
+            movieAdd,
+            cityAdd,
+            cinemaAdd
+        }
+
+        res.send(response)
         await Movie.findByPk(movieId).then(result => res.json(result))
+})
+
+router.post(MOVIES_ADD, async (req, res) => {
+    const { description, movieName, rating, imageUrl } = req.body;
+    const newMovie = await Movie.create({
+        description,
+        name: movieName,
+        rating,
+        imgUrl: imageUrl,
+    })
+    res.send(newMovie)
 })
 
 router.get(CITIES, async (req,res) => {

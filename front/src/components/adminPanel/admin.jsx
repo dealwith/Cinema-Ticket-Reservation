@@ -1,6 +1,5 @@
 import React from 'react';
-import { MOVIES_API } from '../../constants/constants';
-
+import { Link } from 'react-router-dom';
 
 class Admin extends React.Component{
     constructor(props) {
@@ -9,18 +8,6 @@ class Admin extends React.Component{
         this.state = {
             shedules: []    
         }
-    }
-
-    getMovies = async (event) => {
-        const { match: { url } } = this.props;
-        event.preventDefault();
-        await this.props.history.push(url + '/movies')
-    }
-
-    getSchedules = (event) => {
-        const { match: { url } } = this.props;
-        event.preventDefault();
-        return this.props.history.push(url + '/schedules')
     }
 
     render() {
@@ -42,10 +29,10 @@ class Admin extends React.Component{
                             <div className="str-sidebar-sticky">
                                 <ul className="nav flex-column align-items-start">
                                     <li className="nav-item">
-                                        <a href="JavaScript:void(0);" onClick={ this.getMovies } className="nav-link">Add movie</a>
+                                        <Link to='/admin/movies' className="nav-link">Add movie</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <a href="JavaScript:void(0);" onClick={ this.getSchedules } className="nav-link">Schedules</a>
+                                        <Link to='/admin/schedules' className="nav-link">Schedules</Link>
                                     </li>
                                 </ul>
                             </div>                       
