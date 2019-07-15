@@ -1,10 +1,10 @@
 module.exports.movieAdd = async (payload, { Movie }) => {
-    const { description, movieName, rating, imageUrl } = payload;
+    const { description, name, rating, imgUrl } = payload;
     const newMovie = await Movie.create({
         description,
-        name: movieName,
+        name,
         rating,
-        imgUrl: imageUrl,
+        imgUrl,
     })
 
     return newMovie;

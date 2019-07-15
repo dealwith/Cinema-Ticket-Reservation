@@ -1,32 +1,29 @@
 import React from 'react';
 import { MOVIES_ADD } from '../../constants/constants';
-import { Formik, values } from 'formik';
+import { Formik } from 'formik';
 import * as yup from 'yup'; // for everything
 import { Form, Col, Row, Button } from 'react-bootstrap'
 import axios from 'axios';
 
 
 const schema = yup.object({
-  name: yup.string().required(),
+  movieName: yup.string().required(),
   rating: yup.number().required(),
   description: yup.string().required(),
-  imgUrl: yup.string().required(),
+  imageUrl: yup.string().required(),
 });
-
 const AddMovie = () => {
+  function submit() {
+    axios
+      .post(MOVIES_ADD, values)
+      .then(x => {
+        return console.log(x)
+      })
+  }
   return (
     <Formik
       validationSchema={schema}
-      onSubmit={(values, {setSubmitting}) => {
-        axios.post(MOVIES_ADD, values)
-        setSubmitting(false)
-      }}
-      initialValues={{
-        name: '',
-        rating: '',
-        imgUrl: '',
-        description: ''
-      }}
+      onSubmit={submit}
     >
       {({
         handleSubmit,
@@ -44,12 +41,12 @@ const AddMovie = () => {
                 <Form.Control
                   type="text"
                   placeholder="Pila 3"
-                  name="name"
-                  value={values.name}
+                  name="movieName"
+                  value={values.movieName}
                   onChange={handleChange}
-                  isInvalid={touched.name && errors.name}
+                  isValid={touched.movieName && !errors.movieName}
                 />
-                <Form.Control.Feedback type="invalid">{errors.name}</Form.Control.Feedback>
+                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
               </Form.Group>
               <Form.Group as={Col} md="2" controlId="validationFormik02">
                 <Form.Label>Rating</Form.Label>
@@ -67,12 +64,14 @@ const AddMovie = () => {
                 <Form.Control
                   type="text"
                   placeholder="imgur.com/zaebisPicture"
-                  name="imgUrl"
-                  value={values.imgUrl}
+                  name="imageUrl"
+                  value={values.imageUrl}
                   onChange={handleChange}
-                  isInvalid={!!errors.imgUrl}
+                  isValid={touched.imageUrl && !errors.imageUrl}
                 />
-                <Form.Control.Feedback type="invalid">{errors.imgUrl}</Form.Control.Feedback>
+                <Form.Control.Feedback type="invalid">
+                  {errors.imageUrl}
+                </Form.Control.Feedback>
               </Form.Group>
             </Row>
             <Row>
