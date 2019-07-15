@@ -35,7 +35,7 @@ const TicketAddon = TicketAddonModel(sequelize, Sequelize);
 const Role = RoleModel(sequelize, Sequelize);
 
 
-Role.belongsTo(User);
+User.belongsTo(Role);
 City.hasMany(Cinema);
 Cinema.hasMany(Room);
 // CinemaShedule.hasMany(Movie)
