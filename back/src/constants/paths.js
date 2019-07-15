@@ -7,16 +7,22 @@ const MOVIES_ADD = '/movies/add';
 const SEARCH = '/search';
 const CITIES = '/cities';
 const CINEMAS = '/cinemas';
-
+const ADMIN = '/admin';
+const SCHEDULES = '/schedules';
+const CITY_SELECT = '/city-select';
+const CINEMA_SELECT = '/cinema-select';
 
 module.exports = {
-    SIGNUP,
-    LOGIN,
     PROFILE,
+    LOGIN,
+    SIGNUP,
     MOVIES,
+    MOVIE_BY_ID,
+    MOVIES_ADD,
     SEARCH,
     CITIES,
     CINEMAS,
-    MOVIES_ADD,
-    MOVIE_BY_ID
+    SCHEDULES,
+    CITY_SELECT,
+    CINEMA_SELECT,
 }

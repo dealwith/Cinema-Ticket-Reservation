@@ -6,9 +6,15 @@ import { cityOptions, cinemaOptions, movieOptions } from './dataSelect';
 
 const CitySelect = (props) =>  {
     const [citites, setSities] = useState([])
-    useEffect(async () => {
-        const result = await cityOptions
-        setSities(result)
+    
+    useEffect(() => {
+
+        const fetchData = async () => {
+            const result = await cityOptions;
+            setSities(result);
+        }
+        
+        fetchData()
     }, [])
 
     return(
@@ -27,9 +33,14 @@ const CitySelect = (props) =>  {
 
 const CinemaSelect = (props) =>  {
     const [cinemas, setCinemas] = useState([])
-    useEffect(async () => {
-        const result = await cinemaOptions
-        setCinemas(result)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await cinemaOptions;
+            setCinemas(result);
+        }
+
+        fetchData()
     }, [])
 
     return(
@@ -48,9 +59,14 @@ const CinemaSelect = (props) =>  {
 
 const MovieSelect = (props) =>  {
     const [movies, setMovies] = useState([])
-    useEffect(async () => {
-        const result = await movieOptions
-        setMovies(result)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await movieOptions;
+            setMovies(result);    
+        }
+        
+        fetchData()
     }, [])
 
     return(

@@ -61,6 +61,7 @@ class MoviePage extends React.Component {
 
     componentDidMount() {
         this.getMovie();
+        this.getShedules();
     }
 
     componentDidUpdate(prevProps, prevState) {

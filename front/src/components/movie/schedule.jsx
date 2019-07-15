@@ -31,10 +31,16 @@ const Schedule = (props) => {
                                                 { cinema.movies.map( ( movieSchedule, index ) => 
                                                     <div className='mb-3' key={index}>
                                                         <div>
-                                                            <strong>{ movieSchedule.name }</strong>
+                                                            <strong>
+                                                                { movieSchedule.name }
+                                                            </strong>
                                                         </div>
                                                         <div>
-                                                            <img className='str-schedule-item__img img-thumbnail mb-1 mt-1' src={ movieSchedule.imgUrl } alt={ movieSchedule.name }/>
+                                                            <img 
+                                                                className='str-schedule-item__img img-thumbnail mb-1 mt-1' 
+                                                                src={ movieSchedule.imgUrl } 
+                                                                alt={ movieSchedule.name }
+                                                            />
                                                         </div>
                                                         <div>
                                                             <span>{ movieSchedule.cinemaShedule.dateTime }</span>

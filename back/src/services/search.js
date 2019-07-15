@@ -52,21 +52,18 @@ module.exports.search  = async (payload) => {
         }
     })
 
-
-    const cinemaSheduleObject = await CinemaShedule.findAll(
-        // where: {
-        //     include: [
-        //         {
-        //             model: Cinema,
-        //             where: {
-        //                 cityId: {
-        //                     [Op.or]: [cityObject.id, { [Op.regexp]}]
-        //                 }
-        //             }
-        //         }
-        //     ]
-        // }
-        sessions);
-
+    const cinemaSheduleObject = await CinemaShedule.findAll(sessions);
     return cinemaSheduleObject;
+}
+
+module.exports.searchSuggestion = async (payload) => {
+    const { search } = payload;
+    let suggestions = await Movie.findAll({ 
+        where: { 
+            name: { 
+                [Op.iLike]: '%' + search + '%' 
+            } 
+        } 
+    })
+    return suggestions
 }

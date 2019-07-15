@@ -1,168 +1,109 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-const { login, signup } = require('../services/auth');
-const { search } = require('../services/search');
-const   {   PROFILE, 
-            LOGIN, 
-            SIGNUP, 
-            MOVIES,
-            MOVIES_ADD,
-            MOVIE_BY_ID, 
-            SEARCH, 
-            CINEMAS, 
-            CITIES
-        } = require('../constants/constant');
 const { Movie, City, Cinema, CinemaShedule } = require('../sequelize');
-const { Op } = require('../sequelize');
+const passport = require('passport');
+const route = require('../constants/paths');
+const { login, signup } = require('../services/auth');
+const { search, searchSuggestion } = require('../services/search');
+const filter = require('../services/filterMovies').filter;
+const movieAdd = require('../services/movieAdd').movieAdd;
+const findSchedules = require('../services/shedules.js').findSchedules;
+const Op = require('../sequelize').Op;
 
-//authenticate
-router.post(PROFILE, passport.authenticate('jwt', { session: false }),
+
+// AUTHENTICATE
+router.post(route.PROFILE, passport.authenticate('jwt', { session: false }),
     (req, res) => res.send(req.user.profile)
 );
 
-router.post(LOGIN, async (req, res) => {
+router.post(route.LOGIN, async (req, res) => {
     const response = await login(req.body);
     res.json(response);
 });
 
-router.post(SIGNUP, async(req, res) => {
+router.post(route.SIGNUP, async(req, res) => {
     const response = await signup(req.body);
     res.json(response);
 })
 
-//search
+// SEARCH
 router.get('/', async (req, res) => {
-    let q  = req.query.search
-    let suggestions = await Movie.findAll({ where: { name: { [Op.iLike]: '%' + q + '%' } }})
-    res.json(suggestions)
+    const response = await searchSuggestion(req.query);
+    res.json(response)
 })
 
-router.post(SEARCH, async (req, res) => {
+router.post(route.SEARCH, async (req, res) => {
     const response = await search(req.body);
     res.json(response);
 })
 
-//movies
-router.get(MOVIES, async (req, res) => {
+// MOVIES
+router.get(route.MOVIES, async (req, res) => {
     await Movie.findAll().then(movies => res.json(movies))
 })
 
-router.get(MOVIE_BY_ID, async (req, res, next) => {
-        let movieId = req.params.id;
-        let cityParam = req.query.city;
-        let cinemaParam = req.query.cinema;
-        let movieParam = req.query.movie;
-
-        let cityAdd, cinemaAdd, movieAdd;
-
-        if(cityParam) {
-            cityAdd = await City.findAll({
-                where: {
-                    name: cityParam
-                },
-                include: [{
-                    model: Cinema,
-                    include: [{
-                        model: CinemaShedule,
-                    }]
-                }]
-            })
-        }
-
-        
-
-        if(cinemaParam) {
-            cinemaAdd = await Cinema.findOne({
-                where: {
-                    name: cinemaParam
-                }
-            })
-        }
-
-        if(movieParam) {
-            movieAdd = await Movie.findAll({
-                where: {
-                    name: movieParam
-                }
-            })
-        }
-
-        const response = {
-            movieAdd,
-            cityAdd,
-            cinemaAdd
-        }
-
-        res.send(response)
-        await Movie.findByPk(movieId).then(result => res.json(result))
+router.get(route.MOVIE_BY_ID, async (req, res) => {
+    const response = await filter(req.query, req.params, 
+        { Movie, City, Cinema, CinemaShedule });
+    res.send(response);
 })
 
-router.post(MOVIES_ADD, async (req, res) => {
-    const { description, movieName, rating, imageUrl } = req.body;
-    const newMovie = await Movie.create({
-        description,
-        name: movieName,
-        rating,
-        imgUrl: imageUrl,
-    })
-    res.send(newMovie)
+router.post(route.MOVIES_ADD, async (req, res) => {
+    const response = await movieAdd(req.body, { Movie })
+    res.send(response)
 })
 
-router.get(CITIES, async (req,res) => {
+// CITIES
+router.get(route.CITIES, async (req,res) => {
     await City.findAll().then(cities => res.json(cities))
 })
 
-router.get(CINEMAS, async (req, res) => {
+//CINEMAS
+router.get(route.CINEMAS, async (req, res) => {
     await Cinema.findAll().then(cinemas => res.json(cinemas)) 
 })
 
-
-// Shedules
-router.get('/admin/schedules', async (req, res) => {
-    await City
-            .findAll({
-                include: [{
-                    model: Cinema,
-                    include: [{
-                        model:Movie
-                    }]
-                }]
-            })
-            .then(x => res.json(x))
-})
-
-router.get('/city-select', async (req, res) => {
-    let reqCityId = req.body.citySelect;
-    await City.findAll({
-        include: [
-            {
-                model: Cinema,
-                where: {
-                    cityId: reqCityId
-                },
-                include: [{
-                    model: CinemaShedule,
-                    include: [{
-                        model: Movie
-                    }]
-                }]
-            }
-    ]
-    })
-    .then(shedules => res.json(shedules))
-})
-
-router.get('/cinema-select', async (req, res) => {
-    let reqCityId = req.body.citySelect;
-    let reqCinemaId = req.body.cinemaSelect;
-    await Cinema.findAll({
-        where: {
-            id: reqCinemaId,
-            cityId: reqCityId
-        }
-    })
-    .then(shedules => res.json(shedules))
+// SCHEDULES
+router.get(route.SCHEDULES, async (req, res) => {
+    const response = await findSchedules({ City, Cinema, Movie });
+    res.json(response);
 })
 
 module.exports = { router };
+
+// CITYSELECT
+// router.get(route.CITY_SELECT, async (req, res) => {
+
+
+//     let reqCityId = req.body.citySelect;
+//     await City.findAll({
+//         include: [
+//             {
+//                 model: Cinema,
+//                 where: {
+//                     cityId: reqCityId
+//                 },
+//                 include: [{
+//                     model: CinemaShedule,
+//                     include: [{
+//                         model: Movie
+//                     }]
+//                 }]
+//             }
+//     ]
+//     })
+//     .then(shedules => res.json(shedules))
+// })
+
+// CINEMA SELECT
+// router.get(route.CINEMA_SELECT, async (req, res) => {
+//     let reqCityId = req.body.citySelect;
+//     let reqCinemaId = req.body.cinemaSelect;
+//     await Cinema.findAll({
+//         where: {
+//             id: reqCinemaId,
+//             cityId: reqCityId
+//         }
+//     })
+//     .then(shedules => res.json(shedules))
+// })
