@@ -20,6 +20,16 @@ export const history = createBrowserHistory();
 import "regenerator-runtime/runtime";
 import 'redux';
 
+const isAuth = false;
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route {...rest} render={(props => (
+        isAuth === true 
+        ? <Component {...props} />
+        : <Redirect to='/loginPage' />
+    ))} />
+)
+
 
 const CinemaTicketReservation = () => (
     <Router history={ history }>
