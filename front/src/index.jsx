@@ -14,21 +14,9 @@ import Admin from './components/adminPanel/admin';
 import AdminSchedules from './components/adminPanel/adminSchedules';
 import AdminMovies from './components/adminPanel/adminMovies';
 import './scss/app.scss';
-import { createBrowserHistory } from 'history';
 import Footer from './components/footer/footer';
-export const history = createBrowserHistory();
+import { history } from './helpers/history';
 import "regenerator-runtime/runtime";
-import 'redux';
-
-const isAuth = false;
-
-const PrivateRoute = ({ component: Component, ...rest }) => (
-    <Route {...rest} render={(props => (
-        isAuth === true 
-        ? <Component {...props} />
-        : <Redirect to='/loginPage' />
-    ))} />
-)
 
 
 const CinemaTicketReservation = () => (
@@ -50,4 +38,4 @@ const CinemaTicketReservation = () => (
     </Router>
 )
 
-ReactDOM.render(<CinemaTicketReservation />, document.getElementById("app"));   
+ReactDOM.render(<CinemaTicketReservation />, document.getElementById("app"));

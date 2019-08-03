@@ -1,6 +1,6 @@
 import React from 'react';
 import Search from '../search/search';
-import { history } from '../../index'
+import { history } from '../../helpers/history'
 import { Navbar, Container, Row, Col, Form,  Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 

@@ -12,6 +12,7 @@ const generateToken = (id) => {
     return {token: 'bearer ' + token}
 }
 
+
 module.exports.login  = (payload) => {
     const { email, password } = payload;
     

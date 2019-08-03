@@ -22,6 +22,7 @@ module.exports = {
     SEARCH,
     CITIES,
     CINEMAS,
+    ADMIN,
     SCHEDULES,
     CITY_SELECT,
     CINEMA_SELECT,
