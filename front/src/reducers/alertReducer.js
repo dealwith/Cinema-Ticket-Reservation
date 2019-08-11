@@ -1,7 +1,7 @@
 import { alertConstants } from '../constants/alertConstants';
 
 export const alert = (state = {}, action) => {
-  switch (ation.type) {
+  switch (action.type) {
     case alertConstants.SUCCESS:
       return {
         type: 'alert-success',
