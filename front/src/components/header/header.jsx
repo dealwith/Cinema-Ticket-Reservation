@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Search from "../search/search";
 import { history } from "../../helpers/history";
 import { Navbar, Container, Row, Col, Form, Button } from "react-bootstrap";
@@ -8,16 +8,16 @@ import { connect } from "react-redux";
 import { userActions } from "../../actions/userActions";
 
 const Header = props => {
-  useEffect(() => {
-    this.props.dispatch(userActions.getAll());
-  }, []);
+  // useEffect(() => {
+  //   this.props.dispatch(userActions.getAll());
+  // }, []);
 
-  const { user, users } = this.props;
-
+  // const { user, users } = props;
+  const path = history.location.pathname;
   if (
-    history.location.pathname == "/loginPage" ||
-    history.location.pathname == "/registratePage" ||
-    history.location.pathname.startsWith("/admin")
+    path == "/loginPage" ||
+    path == "/registratePage" ||
+    path.includes("admin")
   ) {
     return null;
   } else {
@@ -30,8 +30,8 @@ const Header = props => {
                 <Navbar.Brand href="/">Cinema-Ticket-Reservarion</Navbar.Brand>
               </Col>
               <Col className="d-flex align-items-start">
-                <div inline>
-                  <div className='d-flex flex-column'> 
+                <div inline='true'>
+                  {/* <div className='d-flex flex-column'> 
                     <h1>Hi {user.email}</h1>
                     <p>You're logged in with React & JWT!!</p>
                     <h3>Users from secure api end point:</h3>
@@ -46,7 +46,7 @@ const Header = props => {
                         )}
                       </ul>
                     }
-                  </div>
+                  </div> */}
                   <Link to="/loginPage">
                     <Button
                       variant="primary"

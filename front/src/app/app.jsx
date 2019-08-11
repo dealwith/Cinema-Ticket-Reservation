@@ -5,7 +5,7 @@ import "../scss/app.scss";
 
 import { Router, Route, Switch } from "react-router-dom";
 
-import Header from "../components/header/header";
+import {Header} from "../components/header/header";
 import SearchResult from "../components/search/searchResult";
 import MovieCardContainer from "../components/movie/movieCardContainer";
 import Main from "../components/main/main";
@@ -32,7 +32,7 @@ const App = props => {
   });
   return (
     <Router history={history}>
-      <div className="jumbotron">
+      {/* <div className="jumbotron">
         <div className="container">
           <div className="col-sm-8 col-sm-offset-2">
             {
@@ -43,7 +43,7 @@ const App = props => {
             }
           </div>
         </div>
-      </div>
+      </div> */}
       <Header />
       <Main>
         <Switch>
