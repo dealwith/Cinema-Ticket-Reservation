@@ -1,17 +1,41 @@
 import { userConstants } from "../constants/userConstants";
-import { alertConstants } from "../constants/alertConstants";
+import { alertActions } from "../actions/alertActions";
+import { userServices } from "../services/userServices";
+import { history } from "../helpers/history";
 
 export const userActions = {
   login,
   logout
 };
 
-function login(username, password) {
-  return dispatch => {};
+function login(email, password) {
+  return dispatch => {
+    dispatch(request({ email }));
 
-  function request(user) {}
-  function success(user) {}
-  function failure(error) {}
+    userServices.login(email, password).then(
+      user => {
+        dispatch(success(user));
+        history.push("/");
+      },
+      error => {
+        dispatch(failure(error));
+        dispatch(alertActions.error);
+      }
+    );
+  };
+
+  function request(user) {
+    return { type: userConstants.LOGIN_REQUEST, user };
+  }
+  function success(user) {
+    return { type: userConstants.LOGIN_SUCCESS, user };
+  }
+  function failure(error) {
+    return { type: userConstants.LOGIN_FAILURE, error };
+  }
 }
 
-function logout(params) {}
+function logout() {
+  userServices.logout();
+  return { type: userConstants.LOGOUT }
+}

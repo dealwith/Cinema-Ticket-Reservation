@@ -17,10 +17,8 @@ import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 //     };
 //   }
 
-//   handleInputChange = event => {
-//     const target = event.target;
-//     const name = target.name;
-//     const value = target.value;
+//   handleInputChange = e => {
+//     const { name, value } = this.state
 
 //     this.setState({
 //       [name]: value
@@ -30,8 +28,7 @@ import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 //   handleSubmit = event => {
 //     event.preventDefault();
 
-//     let email = this.state.email;
-//     let password = this.state.password;
+//     const { email, password } = this.state;
 
 //     const user = {
 //       email,
@@ -44,10 +41,6 @@ import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 //       // .then((res) => localStorage.setItem())
 //       .catch(err => console.log(err));
 
-//     this.setState({
-//       email: "",
-//       password: ""
-//     });
 //     history.push("/");
 //   };
 //   render() {
@@ -108,12 +101,10 @@ const sharedAuthLogic = (InnerComoponent, api) =>
         password
       };
 
-      axios.post(api, user).catch(err => console.log(err));
-
-      this.setState({
-        email: "",
-        password: ""
-      });
+      axios
+        .post(api, user)
+        .catch(err => console.log(err));
+        
       history.push("/");
     };
 

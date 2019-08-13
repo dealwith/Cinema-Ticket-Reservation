@@ -5,20 +5,25 @@ import { history } from "../../index";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 import axios from "axios";
+import { userActions } from "../../actions/userActions";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
+
+    this.props.dispatch(userActions.logout());
+
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      sumbitted: false
     };
   }
 
   handleInputChange = event => {
-    const { name, value } = event.target
-
+    const { name, value } = event.target;
     this.setState({
       [name]: value
     });
@@ -27,26 +32,20 @@ class Login extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
+    this.setState({ submitted: true });
     const { email, password } = this.state;
+    const { dispatch } = this.props
 
-    const user = {
-      email,
-      password
-    };
+    if (email && password) {
+      dispatch(userActions.login(email, password))
+    }
 
-    axios
-      .post("http://localhost:3000/login", user)
-      .then(res => console.log(res))
-      // .then((res) => localStorage.setItem())
-      .catch(err => console.log(err));
-
-    this.setState({
-      email: "",
-      password: ""
-    });
     history.push("/");
-  };
+  }
+
   render() {
+    const { loggedIn } = this.props;
+    const { username, password, submitted } = this.state;
     return (
       <Card className="text-center">
         <Card.Header>
@@ -81,6 +80,10 @@ class Login extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
 class Registrate extends React.Component {
   constructor(props) {
     super(props);
@@ -108,13 +111,13 @@ class Registrate extends React.Component {
       email,
       password
     };
-    
+
     // if(password === repeatPassword) {
-      axios
-        .post("http://localhost:3000/signup", user)
-        .then(res => console.log(res))
-        // .then((res) => localStorage.setItem())
-        .catch(err => console.log(err));
+    axios
+      .post(SIGNUP_API, user)
+      .then(res => console.log(res))
+      // .then((res) => localStorage.setItem())
+      .catch(err => console.log(err));
     // }
 
     this.setState({
@@ -158,10 +161,3 @@ class Registrate extends React.Component {
     );
   }
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-
-  }
-}
-
