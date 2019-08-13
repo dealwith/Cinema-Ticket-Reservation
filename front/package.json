@@ -41,6 +41,7 @@
     "babel-preset-react": "^6.24.1",
     "cssnano": "^4.1.10",
     "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
     "ra-data-simple-rest": "^2.9.4",
     "redux-devtools": "^3.5.0"
   },

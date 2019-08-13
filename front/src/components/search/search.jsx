@@ -30,9 +30,7 @@ export default class Search extends React.Component {
     }
 
     handleInputChange = event => {
-        const target = event.target;
-        const name = target.name;
-        const value = target.value; 
+        const { name, value } = event.target
         this.setState({
             query: this.search.current.value,
             [name]: value
@@ -45,10 +43,7 @@ export default class Search extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let movieName = this.state.query;
-        let cinema = this.state.cinema;
-        let city = this.state.city;
-        let seats = this.state.seats;
+        let { movieName, cinema, city, seats } = this.state;
         
         const search = {
             movieName,
@@ -68,6 +63,7 @@ export default class Search extends React.Component {
     }
 
     render() {
+      const { value, results, query, city, cinema, seats } = this.state
         return (
             <Form className='d-flex justify-content-end' onSubmit={ this.handleSubmit } method='POST' inline>
                 <div className="d-flex">
@@ -77,11 +73,11 @@ export default class Search extends React.Component {
                             placeholder="Search"
                             ref={ this.search }
                             onChange={ this.handleInputChange }
-                            value={ this.state.value }
+                            value={ value }
                             className="mr-sm-2"
                             autoComplete="off" 
                         />
-                        { this.state.query.length === 0 ? null : <Suggestions results={ this.state.results } /> }
+                        { query.length === 0 ? null : <Suggestions results={ results } /> }
                     </div>
                     <Button data-toggle="collapse"
                             data-target="#search-collapse"
@@ -93,10 +89,10 @@ export default class Search extends React.Component {
                     </Button><Button type="submit">Submit</Button>
                 </div>
                 <ExtendedSearch
-                    city={ this.state.city }
-                    cinema={ this.state.cinema }
-                    query={ this.state.query }
-                    seats={ this.state.seats }
+                    city={ city }
+                    cinema={ cinema }
+                    query={ query }
+                    seats={ seats }
                     handleInputChange={ this.handleInputChange }
                 />
             </Form>

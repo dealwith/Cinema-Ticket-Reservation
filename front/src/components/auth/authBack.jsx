@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-const AuthBack = (props) => (
+const AuthBack = ({ children }) => (
     <div className='auth-back'>
-        { props.children }
+        { children }
     </div>    
 )
 

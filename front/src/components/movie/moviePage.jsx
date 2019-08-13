@@ -35,10 +35,11 @@ class MoviePage extends React.Component {
     }
 
     getShedules = () => {
-        const state = this.state;
-        const CITY_SELECT = state.citySelect;
-        const CINEMA_SELECT = state.cinemaSelect
-        const MOVIE_SELECT = state.movieSelect;
+        const { 
+          citySelect: CITY_SELECT, 
+          cinemaSelect: CINEMA_SELECT, 
+          movieSelect: MOVIE_SELECT 
+        } = this.state;
         const { match: {params} } = this.props;
         
         axios
@@ -54,11 +55,8 @@ class MoviePage extends React.Component {
     }
 
     render() {
-        const state = this.state;
-        const movie = state.movie['movieOnPage'] 
-        const CITY_SELECT = state.citySelect;
-        const CINEMA_SELECT = state.cinemaSelect
-        const MOVIE_SELECT = state.movieSelect;
+        const movie = this.state.movie['movieOnPage']
+        const {  citySelect: CITY_SELECT, cinemaSelect: CINEMA_SELECT, movieSelect: MOVIE_SELECT } = this.state;
         if(!movie){
             return <h1>loading</h1>
         }else{

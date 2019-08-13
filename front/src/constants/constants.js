@@ -1,7 +1,9 @@
-export const MAIN_URL = 'http://localhost:3000';
-export const SEARCH_URL = 'http://localhost:3000/search';
-export const MOVIES_API = 'http://localhost:3000/movies';
-export const MOVIES_ADD = 'http://localhost:3000/movies/add';
-export const CITIES_API = 'http://localhost:3000/cities';
-export const CINEMAS_API = 'http://localhost:3000/cinemas';
-export const SCHEDULES_API = 'http://localhost:3000/schedules';
+export const MAIN_URL = "http://localhost:3000";
+export const SEARCH_URL = MAIN_URL + "/search";
+export const MOVIES_API = MAIN_URL + "/movies";
+export const MOVIES_ADD = MOVIES_API + "/add";
+export const CITIES_API = MAIN_URL + "/cities";
+export const CINEMAS_API = MAIN_URL + "/cinemas";
+export const SCHEDULES_API = MAIN_URL + "/schedules";
+export const LOGIN_API = MAIN_URL + "/login";
+export const SIGNUP_API = MAIN_URL + "/signup";

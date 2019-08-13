@@ -4,7 +4,7 @@ import Admin from '../adminPanel/admin';
 import AddMovie from './addMovie'
 
 
-const AdminMovies = () => (
+const AdminMovies = () => 
     <Admin>
         <div >
             <div className='mb-5'>
@@ -14,7 +14,6 @@ const AdminMovies = () => (
             <MovieCardContainer />
         </div>
     </Admin>
-)
+
 
 export default AdminMovies
-
