@@ -1,6 +1,6 @@
 export const userServices = {
   login,
-  logout
+  // logout
 };
 
 const login = (email, password) => {
@@ -10,10 +10,11 @@ const login = (email, password) => {
   }
   axios
     .post("http://localhost:3000/login", user)
-    .then((user) => localStorage.setItem('user', JSON.stringify(user)))
+    .then((user) => {
+      localStorage.setItem('user', JSON.stringify(user))
+      return user
+    })
     .catch(err => console.log(err));
 };
 
-const logout = () => {
-  localStorage.removeItem("user");
-};
+export const logout1 = () => localStorage.removeItem("user");

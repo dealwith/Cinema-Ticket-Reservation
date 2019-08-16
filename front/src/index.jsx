@@ -5,7 +5,7 @@ import { store } from "./helpers/store";
 import App from "./app/app";
 
 // import { alertActions } from './actions/alertActions';
-// window.store = store;
+window.store = store;
 // window.success = alertActions.success
 
 render(

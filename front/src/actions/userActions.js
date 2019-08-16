@@ -1,18 +1,20 @@
 import { userConstants } from "../constants/userConstants";
 import { alertActions } from "../actions/alertActions";
-import { userServices } from "../services/userServices";
+import { userServices, logout1 } from "../services/userServices";
 import { history } from "../helpers/history";
+
 
 export const userActions = {
   login,
-  logout
+  // logout
 };
 
 function login(email, password) {
   return dispatch => {
     dispatch(request({ email }));
 
-    userServices.login(email, password).then(
+    userServices.login(email, password)
+      .then(
       user => {
         dispatch(success(user));
         history.push("/");
@@ -36,6 +38,8 @@ function login(email, password) {
 }
 
 function logout() {
-  userServices.logout();
-  return { type: userConstants.LOGOUT }
+  debugger;
+  // logout1();
+  localStorage.removeItem("user")
+  return { type: userConstants.LOGOUT };
 }

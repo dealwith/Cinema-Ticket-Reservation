@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 
-const ConnectedHeader = ({ user }) => {
+const Header = props => {
   if (
     history.location.pathname == "/loginPage" ||
     history.location.pathname == "/registratePage" ||
@@ -15,7 +15,7 @@ const ConnectedHeader = ({ user }) => {
   ) {
     return null;
   } else {
-    const user = this.props
+    const { user } = props;
     return (
       <header className="mb-5">
         <Navbar expand="xl" variant="dark" bg="dark" className="navbar">
@@ -52,7 +52,7 @@ const ConnectedHeader = ({ user }) => {
   }
 };
 
-ConnectedHeader.propTypes = {
+Header.propTypes = {
   user: PropTypes.object
 };
 
@@ -62,5 +62,5 @@ const mapStateToProps = state => {
   return { user }
 };
 
-const Header = connect(mapStateToProps)(ConnectedHeader);
-export default Header;
+const connectedHeader = connect(mapStateToProps)(Header);
+export { connectedHeader as Header };

@@ -8,12 +8,14 @@ import { Link } from "react-router-dom";
 import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 import axios from "axios";
 import { userActions } from "../../actions/userActions";
+import { connect } from 'react-redux';
+
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-
-    this.props.dispatch(userActions.logout());
+    // debugger;
+    // this.props.dispatch(userActions.logout());
 
     this.state = {
       email: "",
@@ -42,6 +44,11 @@ class Login extends React.Component {
 
     history.push("/");
   }
+
+  
+componentDidMount() {
+  this.props.dispatch(userActions.logout());
+}
 
   render() {
     const { loggedIn } = this.props;
@@ -80,10 +87,17 @@ class Login extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {};
+const mapStateToProps = state => {
+  const { loggingIn } = state.authentication;
+  return { loggingIn };
 };
 
+
+const connectedLoginPage = connect(mapStateToProps)(Login);
+export { connectedLoginPage as Login };
+
+
+//////////////////////////////////////////
 class Registrate extends React.Component {
   constructor(props) {
     super(props);
