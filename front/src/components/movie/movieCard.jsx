@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import { MOVIES_API } from '../../constants/constants';
+import { Link } from 'react-router-dom';
 
 
 export default class MovieCard extends React.Component {
@@ -28,7 +29,7 @@ export default class MovieCard extends React.Component {
 
     render() {
         let movies = this.state.movies.map(movie => 
-            <a href={'/movies/' + movie.id} onClick={ this.handleClick } key={movie.id}>
+            <Link to={'/movies/' + movie.id} onClick={ this.handleClick } key={movie.id}>
                 <div className='movie-card-item card'>
                     <div className="movie-card-item__img">
                         <img src={movie.imgUrl} alt=""/>
@@ -40,7 +41,7 @@ export default class MovieCard extends React.Component {
                         Gleb's rating {movie.rating}%
                     </div>
                 </div>
-            </a>
+            </Link>
         )
         return (
             <>

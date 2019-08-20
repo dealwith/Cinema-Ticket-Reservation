@@ -1,14 +1,16 @@
+import axios from 'axios';
+
 export const userServices = {
   login,
-  // logout
+  logout
 };
 
-const login = (email, password) => {
+function login(email, password)  {
   const user = {
     email,
     password
   }
-  axios
+  return axios
     .post("http://localhost:3000/login", user)
     .then((user) => {
       localStorage.setItem('user', JSON.stringify(user))
@@ -17,4 +19,12 @@ const login = (email, password) => {
     .catch(err => console.log(err));
 };
 
-export const logout1 = () => localStorage.removeItem("user");
+function logout () {
+  return localStorage.removeItem('user')
+}
+
+// const logout = () => localStorage.removeItem("user");
+
+// const registrate = (email, password) => {
+  
+// }

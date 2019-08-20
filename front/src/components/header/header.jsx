@@ -6,8 +6,11 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-
 const Header = props => {
+  const logout = e => {
+    e.preventDefault();
+    
+  }
   if (
     history.location.pathname == "/loginPage" ||
     history.location.pathname == "/registratePage" ||
@@ -27,9 +30,9 @@ const Header = props => {
               <Col className="d-flex align-items-start">
                 <div inline="true">
                   {user ? (
-                    <span className="d-flex">
+                    <span className="d-flex text-light">
                       hello {user.email}
-                      <Button>Logout</Button>
+                      <Button onClick={ logout }>Logout</Button>
                     </span>
                   ) : (
                     <Link to="/loginPage">
@@ -59,7 +62,7 @@ Header.propTypes = {
 const mapStateToProps = state => {
   const { authentication } = state;
   const { user } = authentication;
-  return { user }
+  return { user };
 };
 
 const connectedHeader = connect(mapStateToProps)(Header);

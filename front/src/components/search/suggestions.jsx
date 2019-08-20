@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 const Suggestions = props => {
   const options = props.results.map(movie => (
     <li className="list-group-item" key={movie.id}>
-      <a href="#">{movie.name}</a>
+      <Link to={`movies/${movie.id}`}>{movie.name}</Link>
     </li>
   ));
   return (

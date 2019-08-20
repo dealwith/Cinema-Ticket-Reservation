@@ -101,9 +101,7 @@ const sharedAuthLogic = (InnerComoponent, api) =>
         password
       };
 
-      axios
-        .post(api, user)
-        .catch(err => console.log(err));
+      axios.post(api, user).catch(err => console.log(err));
 
       history.push("/");
     };

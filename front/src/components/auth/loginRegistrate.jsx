@@ -1,7 +1,6 @@
 import React from "react";
 import AuthForm from "./authForm";
 import RegistrateForm from "./registrateForm";
-import { history } from "../../index";
 import { Card } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -9,13 +8,12 @@ import { LOGIN_API, SIGNUP_API } from "../../constants/constants";
 import axios from "axios";
 import { userActions } from "../../actions/userActions";
 import { connect } from 'react-redux';
+import { history } from '../../helpers/history';
 
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
-    // this.props.dispatch(userActions.logout());
 
     this.state = {
       email: "",
@@ -36,23 +34,21 @@ class Login extends React.Component {
 
     this.setState({ submitted: true });
     const { email, password } = this.state;
-    const { dispatch } = this.props
 
     if (email && password) {
-      dispatch(userActions.login(email, password))
+      this.props.dispatch(userActions.login(email, password))
     }
 
     history.push("/");
   }
 
-  
-componentDidMount() {
-  this.props.dispatch(userActions.logout());
-}
+  componentDidMount() {
+    this.props.dispatch(userActions.logout())
+  }
 
   render() {
     const { loggedIn } = this.props;
-    const { username, password, submitted } = this.state;
+    const { email, password, submitted } = this.state;
     return (
       <Card className="text-center">
         <Card.Header>
@@ -66,8 +62,8 @@ componentDidMount() {
         <Card.Body>
           <AuthForm
             handleInputChange={this.handleInputChange}
-            email={this.state.email}
-            password={this.state.password}
+            email={email}
+            password={password}
             handleSubmit={this.handleSubmit}
           />
         </Card.Body>
