@@ -1,12 +1,12 @@
 import { userConstants } from "../constants/userConstants";
 import { alertActions } from "../actions/alertActions";
-import { userServices } from "../services/userServices";
+import { userServices, logout1 } from "../services/userServices";
 import { history } from "../helpers/history";
 
 
 export const userActions = {
   login,
-  logout
+  // logout
 };
 
 function login(email, password) {
@@ -38,6 +38,8 @@ function login(email, password) {
 }
 
 function logout() {
-  userServices.logout()
+  debugger;
+  // logout1();
+  localStorage.removeItem("user")
   return { type: userConstants.LOGOUT };
 }

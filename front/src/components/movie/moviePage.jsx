@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import axios from 'axios';
 import { CitySelect, CinemaSelect, MovieSelect } from './select';
 import Schedule from './schedule';
@@ -8,7 +8,7 @@ import Schedule from './schedule';
 class MoviePage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             movie: {},
             citySelect: '',
             cinemaSelect: '',
@@ -35,16 +35,16 @@ class MoviePage extends React.Component {
     }
 
     getShedules = () => {
-        const { 
-          citySelect: CITY_SELECT, 
-          cinemaSelect: CINEMA_SELECT, 
-          movieSelect: MOVIE_SELECT 
+        const {
+            citySelect: CITY_SELECT,
+            cinemaSelect: CINEMA_SELECT,
+            movieSelect: MOVIE_SELECT
         } = this.state;
-        const { match: {params} } = this.props;
-        
+        const { match: { params } } = this.props;
+
         axios
             .get(`http://localhost:3000/movies/${params.movieId}?city=${CITY_SELECT}&cinema=${CINEMA_SELECT}&movie=${MOVIE_SELECT}`)
-            .then( ({data: movieOnPage})  => this.setState({
+            .then(({ data: movieOnPage }) => this.setState({
                 movie: movieOnPage
             }))
             .catch(err => console.log(err))
@@ -56,30 +56,30 @@ class MoviePage extends React.Component {
 
     render() {
         const movie = this.state.movie['movieOnPage']
-        const {  citySelect: CITY_SELECT, cinemaSelect: CINEMA_SELECT, movieSelect: MOVIE_SELECT } = this.state;
-        if(!movie){
+        const { citySelect: CITY_SELECT, cinemaSelect: CINEMA_SELECT, movieSelect: MOVIE_SELECT } = this.state;
+        if (!movie) {
             return <h1>loading</h1>
-        }else{
+        } else {
             return (
                 <Container>
                     <div className="movie-filter mb-3 d-flex justify-content-around">
-                        <CitySelect name='citySelect' 
-                                    value={ CITY_SELECT } 
-                                    handleChange={ this.handleCityChange } 
+                        <CitySelect name='citySelect'
+                            value={CITY_SELECT}
+                            handleChange={this.handleCityChange}
                         />
-                        <CinemaSelect   name='cinemaSelect' 
-                                        value={ CINEMA_SELECT } 
-                                        handleChange={this.handleCinemaChange} 
+                        <CinemaSelect name='cinemaSelect'
+                            value={CINEMA_SELECT}
+                            handleChange={this.handleCinemaChange}
                         />
-                        <MovieSelect    name='movieSelect' 
-                                        value={ MOVIE_SELECT }      
-                                        handleChange={this.handleMovieChange} 
+                        <MovieSelect name='movieSelect'
+                            value={MOVIE_SELECT}
+                            handleChange={this.handleMovieChange}
                         />
                     </div>
-                    <div className='card mb-4' style={{height: 'auto'}}>
+                    <div className='card mb-4' style={{ height: 'auto' }}>
                         <div className="row no-gutters">
                             <div className="col md-5">
-                                <img src={movie.imgUrl} alt="" className="card-img rounded" style={{maxHeight: 500, objectFit: 'contain'}}/>
+                                <img src={movie.imgUrl} alt="" className="card-img rounded" style={{ maxHeight: 500, objectFit: 'contain' }} />
                             </div>
                             <div className="col md-8">
                                 <div className="card-body">
@@ -95,7 +95,7 @@ class MoviePage extends React.Component {
                 </Container>
             )
         }
-        
+
     }
 }
 
